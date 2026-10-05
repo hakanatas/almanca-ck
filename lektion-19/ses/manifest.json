@@ -1,0 +1,1255 @@
+[
+ {
+  "key": "L|Bett",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-bett-9e793b7079.mp3",
+  "dur": 0.5
+ },
+ {
+  "key": "L|das Bett",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-das-bett-52200dafe9.mp3",
+  "dur": 0.82
+ },
+ {
+  "key": "L|Das Bett steht im Schlafzimmer.",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-das-bett-steht-im-schlafzimmer-33a5f58118.mp3",
+  "dur": 1.7
+ },
+ {
+  "key": "S|Das Bett steht im Schlafzimmer.",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.7,
+  "file": "S-das-bett-steht-im-schlafzimmer-72108294e9.mp3",
+  "dur": 2.23
+ },
+ {
+  "key": "L|Das Bett steht im Kinderzimmer.",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-das-bett-steht-im-kinderzimmer-90aa51ecfc.mp3",
+  "dur": 1.68
+ },
+ {
+  "key": "S|Das Bett steht im Kinderzimmer.",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.7,
+  "file": "S-das-bett-steht-im-kinderzimmer-d90eb82322.mp3",
+  "dur": 2.04
+ },
+ {
+  "key": "L|Sessel",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-sessel-d4269aa795.mp3",
+  "dur": 0.82
+ },
+ {
+  "key": "L|der Sessel",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-der-sessel-bcb48e76b3.mp3",
+  "dur": 0.98
+ },
+ {
+  "key": "L|Der Sessel steht im Wohnzimmer.",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-der-sessel-steht-im-wohnzimmer-c04fc6d3f2.mp3",
+  "dur": 1.87
+ },
+ {
+  "key": "S|Der Sessel steht im Wohnzimmer.",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.7,
+  "file": "S-der-sessel-steht-im-wohnzimmer-a0c9264454.mp3",
+  "dur": 2.3
+ },
+ {
+  "key": "L|Der Sessel steht im Schlafzimmer.",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-der-sessel-steht-im-schlafzimmer-f019576936.mp3",
+  "dur": 1.9
+ },
+ {
+  "key": "S|Der Sessel steht im Schlafzimmer.",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.7,
+  "file": "S-der-sessel-steht-im-schlafzimmer-89a9f69d80.mp3",
+  "dur": 2.42
+ },
+ {
+  "key": "L|Teppich",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-teppich-29530cbfbf.mp3",
+  "dur": 0.74
+ },
+ {
+  "key": "L|der Teppich",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-der-teppich-b42477d0d2.mp3",
+  "dur": 0.89
+ },
+ {
+  "key": "L|Der Teppich liegt im Wohnzimmer.",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-der-teppich-liegt-im-wohnzimmer-68fce96f2d.mp3",
+  "dur": 1.97
+ },
+ {
+  "key": "S|Der Teppich liegt im Wohnzimmer.",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.7,
+  "file": "S-der-teppich-liegt-im-wohnzimmer-e3f0642e95.mp3",
+  "dur": 2.42
+ },
+ {
+  "key": "L|Der Teppich liegt im Kinderzimmer.",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-der-teppich-liegt-im-kinderzimmer-5e2fcc110e.mp3",
+  "dur": 2.04
+ },
+ {
+  "key": "S|Der Teppich liegt im Kinderzimmer.",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.7,
+  "file": "S-der-teppich-liegt-im-kinderzimmer-55f5a5e6a3.mp3",
+  "dur": 2.86
+ },
+ {
+  "key": "L|Der Teppich liegt im Schlafzimmer.",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-der-teppich-liegt-im-schlafzimmer-822c6d5221.mp3",
+  "dur": 2.04
+ },
+ {
+  "key": "S|Der Teppich liegt im Schlafzimmer.",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.7,
+  "file": "S-der-teppich-liegt-im-schlafzimmer-f1efa499fd.mp3",
+  "dur": 2.54
+ },
+ {
+  "key": "L|Der Teppich liegt im Flur.",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-der-teppich-liegt-im-flur-34970ad899.mp3",
+  "dur": 1.54
+ },
+ {
+  "key": "S|Der Teppich liegt im Flur.",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.7,
+  "file": "S-der-teppich-liegt-im-flur-db698b0ae0.mp3",
+  "dur": 2.04
+ },
+ {
+  "key": "L|Stuhl",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-stuhl-04719886da.mp3",
+  "dur": 0.77
+ },
+ {
+  "key": "L|der Stuhl",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-der-stuhl-f5c6a5798c.mp3",
+  "dur": 0.72
+ },
+ {
+  "key": "L|Der Stuhl steht in der Küche.",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-der-stuhl-steht-in-der-kueche-e934a3d6b2.mp3",
+  "dur": 1.66
+ },
+ {
+  "key": "S|Der Stuhl steht in der Küche.",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.7,
+  "file": "S-der-stuhl-steht-in-der-kueche-9f7f791b5a.mp3",
+  "dur": 2.26
+ },
+ {
+  "key": "L|Der Stuhl steht im Kinderzimmer.",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-der-stuhl-steht-im-kinderzimmer-fd2918f9aa.mp3",
+  "dur": 1.68
+ },
+ {
+  "key": "S|Der Stuhl steht im Kinderzimmer.",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.7,
+  "file": "S-der-stuhl-steht-im-kinderzimmer-882a57f725.mp3",
+  "dur": 2.42
+ },
+ {
+  "key": "L|Der Stuhl steht im Wohnzimmer.",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-der-stuhl-steht-im-wohnzimmer-cfc736c9d9.mp3",
+  "dur": 1.92
+ },
+ {
+  "key": "S|Der Stuhl steht im Wohnzimmer.",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.7,
+  "file": "S-der-stuhl-steht-im-wohnzimmer-4123fd8e66.mp3",
+  "dur": 2.18
+ },
+ {
+  "key": "L|Spiegel",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-spiegel-147554e3ab.mp3",
+  "dur": 0.84
+ },
+ {
+  "key": "L|der Spiegel",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-der-spiegel-aaef96ffdd.mp3",
+  "dur": 0.96
+ },
+ {
+  "key": "L|Der Spiegel hängt im Bad.",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-der-spiegel-haengt-im-bad-52ea9cb004.mp3",
+  "dur": 1.63
+ },
+ {
+  "key": "S|Der Spiegel hängt im Bad.",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.7,
+  "file": "S-der-spiegel-haengt-im-bad-d6154e818b.mp3",
+  "dur": 1.97
+ },
+ {
+  "key": "L|Der Spiegel hängt im Flur.",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-der-spiegel-haengt-im-flur-3914cea36a.mp3",
+  "dur": 1.78
+ },
+ {
+  "key": "S|Der Spiegel hängt im Flur.",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.7,
+  "file": "S-der-spiegel-haengt-im-flur-5fa82ab242.mp3",
+  "dur": 2.33
+ },
+ {
+  "key": "L|Der Spiegel hängt im Schlafzimmer.",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-der-spiegel-haengt-im-schlafzimmer-84f7031e80.mp3",
+  "dur": 1.85
+ },
+ {
+  "key": "S|Der Spiegel hängt im Schlafzimmer.",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.7,
+  "file": "S-der-spiegel-haengt-im-schlafzimmer-4539f04bc9.mp3",
+  "dur": 2.62
+ },
+ {
+  "key": "L|Sofa",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-sofa-2e620e0f50.mp3",
+  "dur": 0.7
+ },
+ {
+  "key": "L|das Sofa",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-das-sofa-9ec6ec7eb6.mp3",
+  "dur": 1.06
+ },
+ {
+  "key": "L|Das Sofa steht im Wohnzimmer.",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-das-sofa-steht-im-wohnzimmer-5625a99239.mp3",
+  "dur": 1.87
+ },
+ {
+  "key": "S|Das Sofa steht im Wohnzimmer.",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.7,
+  "file": "S-das-sofa-steht-im-wohnzimmer-fdfecad47f.mp3",
+  "dur": 2.16
+ },
+ {
+  "key": "L|Schreibtisch",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-schreibtisch-a8e50a8538.mp3",
+  "dur": 0.91
+ },
+ {
+  "key": "L|der Schreibtisch",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-der-schreibtisch-e7582767bd.mp3",
+  "dur": 0.82
+ },
+ {
+  "key": "L|Der Schreibtisch steht im Kinderzimmer.",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-der-schreibtisch-steht-im-kinderzimmer-d2f9d5f38d.mp3",
+  "dur": 2.02
+ },
+ {
+  "key": "S|Der Schreibtisch steht im Kinderzimmer.",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.7,
+  "file": "S-der-schreibtisch-steht-im-kinderzimmer-2851ffafee.mp3",
+  "dur": 2.57
+ },
+ {
+  "key": "L|Tisch",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-tisch-542bd5089e.mp3",
+  "dur": 0.6
+ },
+ {
+  "key": "L|der Tisch",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-der-tisch-db51f346b1.mp3",
+  "dur": 0.62
+ },
+ {
+  "key": "L|Der Tisch steht in der Küche.",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-der-tisch-steht-in-der-kueche-8cb827748c.mp3",
+  "dur": 1.56
+ },
+ {
+  "key": "S|Der Tisch steht in der Küche.",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.7,
+  "file": "S-der-tisch-steht-in-der-kueche-0380ac6bb4.mp3",
+  "dur": 2.18
+ },
+ {
+  "key": "L|Der Tisch steht im Wohnzimmer.",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-der-tisch-steht-im-wohnzimmer-459b5cd1c0.mp3",
+  "dur": 1.54
+ },
+ {
+  "key": "S|Der Tisch steht im Wohnzimmer.",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.7,
+  "file": "S-der-tisch-steht-im-wohnzimmer-686084e7f3.mp3",
+  "dur": 2.14
+ },
+ {
+  "key": "L|Schrank",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-schrank-e97275b32e.mp3",
+  "dur": 0.67
+ },
+ {
+  "key": "L|der Schrank",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-der-schrank-15aa19c51c.mp3",
+  "dur": 0.94
+ },
+ {
+  "key": "L|Der Schrank steht im Schlafzimmer.",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-der-schrank-steht-im-schlafzimmer-8c9bbcf0b1.mp3",
+  "dur": 1.63
+ },
+ {
+  "key": "S|Der Schrank steht im Schlafzimmer.",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.7,
+  "file": "S-der-schrank-steht-im-schlafzimmer-78fc23f126.mp3",
+  "dur": 2.26
+ },
+ {
+  "key": "L|Der Schrank steht im Kinderzimmer.",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-der-schrank-steht-im-kinderzimmer-1bba8f6732.mp3",
+  "dur": 1.9
+ },
+ {
+  "key": "S|Der Schrank steht im Kinderzimmer.",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.7,
+  "file": "S-der-schrank-steht-im-kinderzimmer-d1469f007b.mp3",
+  "dur": 2.47
+ },
+ {
+  "key": "L|Der Schrank steht im Flur.",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-der-schrank-steht-im-flur-ef0ede9cbc.mp3",
+  "dur": 1.51
+ },
+ {
+  "key": "S|Der Schrank steht im Flur.",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.7,
+  "file": "S-der-schrank-steht-im-flur-5bb2869cc0.mp3",
+  "dur": 1.99
+ },
+ {
+  "key": "L|Kühlschrank",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-kuehlschrank-3d4b333d23.mp3",
+  "dur": 0.91
+ },
+ {
+  "key": "L|der Kühlschrank",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-der-kuehlschrank-beefc1094c.mp3",
+  "dur": 1.01
+ },
+ {
+  "key": "L|Der Kühlschrank steht in der Küche.",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-der-kuehlschrank-steht-in-der-kueche-1697e96507.mp3",
+  "dur": 2.06
+ },
+ {
+  "key": "S|Der Kühlschrank steht in der Küche.",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.7,
+  "file": "S-der-kuehlschrank-steht-in-der-kueche-bf12a484a6.mp3",
+  "dur": 2.45
+ },
+ {
+  "key": "L|Regal",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-regal-236a9504e1.mp3",
+  "dur": 0.84
+ },
+ {
+  "key": "L|das Regal",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-das-regal-8de5f9389a.mp3",
+  "dur": 1.1
+ },
+ {
+  "key": "L|Das Regal steht im Kinderzimmer.",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-das-regal-steht-im-kinderzimmer-45d1d44536.mp3",
+  "dur": 2.04
+ },
+ {
+  "key": "S|Das Regal steht im Kinderzimmer.",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.7,
+  "file": "S-das-regal-steht-im-kinderzimmer-70d6096461.mp3",
+  "dur": 2.54
+ },
+ {
+  "key": "L|Das Regal steht im Wohnzimmer.",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-das-regal-steht-im-wohnzimmer-be36bc6ac1.mp3",
+  "dur": 1.61
+ },
+ {
+  "key": "S|Das Regal steht im Wohnzimmer.",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.7,
+  "file": "S-das-regal-steht-im-wohnzimmer-c663059283.mp3",
+  "dur": 2.52
+ },
+ {
+  "key": "L|Das Regal steht im Flur.",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-das-regal-steht-im-flur-a09eb077ec.mp3",
+  "dur": 1.68
+ },
+ {
+  "key": "S|Das Regal steht im Flur.",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.7,
+  "file": "S-das-regal-steht-im-flur-a784a33a22.mp3",
+  "dur": 2.16
+ },
+ {
+  "key": "L|steht",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-steht-a99f1c4cfe.mp3",
+  "dur": 0.7
+ },
+ {
+  "key": "L|liegt",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-liegt-77839518c0.mp3",
+  "dur": 0.74
+ },
+ {
+  "key": "L|hängt",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-haengt-b826620132.mp3",
+  "dur": 0.6
+ },
+ {
+  "key": "L|fehlen",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-fehlen-3cec1b522b.mp3",
+  "dur": 0.82
+ },
+ {
+  "key": "L|Oh nein, eine Kiste fehlt!",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-oh-nein-eine-kiste-fehlt-922326c50c.mp3",
+  "dur": 1.9
+ },
+ {
+  "key": "L|unser, unsere",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-unser-unsere-e76471bc45.mp3",
+  "dur": 1.39
+ },
+ {
+  "key": "L|Das ist unser Haus und das ist unsere Küche.",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-das-ist-unser-haus-und-das-ist-unsere-ku-1b77ffd559.mp3",
+  "dur": 3.41
+ },
+ {
+  "key": "L|euer, eure",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-euer-eure-48a0e130c4.mp3",
+  "dur": 0.96
+ },
+ {
+  "key": "L|Ist das euer Balkon? Und wo ist eure Garage?",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-ist-das-euer-balkon-und-wo-ist-eure-gara-683ac3432a.mp3",
+  "dur": 4.03
+ },
+ {
+  "key": "L|denn",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-denn-6b6106e9a7.mp3",
+  "dur": 0.72
+ },
+ {
+  "key": "L|Ich bin müde, denn ich trage viele Kisten.",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-ich-bin-muede-denn-ich-trage-viele-kiste-8946065597.mp3",
+  "dur": 2.57
+ },
+ {
+  "key": "L|auspacken",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-auspacken-d5fb173294.mp3",
+  "dur": 1.01
+ },
+ {
+  "key": "L|Wir packen die Kisten aus.",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-wir-packen-die-kisten-aus-9e92670feb.mp3",
+  "dur": 1.66
+ },
+ {
+  "key": "L|komisch",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-komisch-a14dd944e6.mp3",
+  "dur": 0.77
+ },
+ {
+  "key": "L|Der Kühlschrank im Bad? Das ist komisch!",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-der-kuehlschrank-im-bad-das-ist-komisch-07e7bf649b.mp3",
+  "dur": 3.14
+ },
+ {
+  "key": "L|eigentlich",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-eigentlich-a1fc7cd2d0.mp3",
+  "dur": 0.98
+ },
+ {
+  "key": "L|Eigentlich ist das Haus sehr schön.",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-eigentlich-ist-das-haus-sehr-schoen-a94359fe57.mp3",
+  "dur": 2.23
+ },
+ {
+  "key": "L|wichtig",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-wichtig-e88ba264bf.mp3",
+  "dur": 1.03
+ },
+ {
+  "key": "L|Ordnung ist für Mama sehr wichtig.",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-ordnung-ist-fuer-mama-sehr-wichtig-7320a03a6f.mp3",
+  "dur": 2.14
+ },
+ {
+  "key": "L|anders",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-anders-b2ad082541.mp3",
+  "dur": 0.7
+ },
+ {
+  "key": "L|Das neue Haus ist ganz anders.",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-das-neue-haus-ist-ganz-anders-e922d995ad.mp3",
+  "dur": 2.21
+ },
+ {
+  "key": "L|jung",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-jung-2230ccfcd6.mp3",
+  "dur": 0.67
+ },
+ {
+  "key": "L|Unsere Nachbarn sind jung und nett.",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-unsere-nachbarn-sind-jung-und-nett-8b9beece4a.mp3",
+  "dur": 1.99
+ },
+ {
+  "key": "L|nervös",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-nervoes-98b1e540c7.mp3",
+  "dur": 0.86
+ },
+ {
+  "key": "L|Morgen ist mein erster Schultag. Ich bin nervös.",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-morgen-ist-mein-erster-schultag-ich-bin--1916d0e05e.mp3",
+  "dur": 3.7
+ },
+ {
+  "key": "L|stressig",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-stressig-56b2bd6d3e.mp3",
+  "dur": 0.89
+ },
+ {
+  "key": "L|Ein Umzug ist immer stressig.",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-ein-umzug-ist-immer-stressig-b4507d10f8.mp3",
+  "dur": 1.94
+ },
+ {
+  "key": "L|streng",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-streng-5924a8386d.mp3",
+  "dur": 0.74
+ },
+ {
+  "key": "L|Unsere Lehrerin ist sehr streng.",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-unsere-lehrerin-ist-sehr-streng-8de8782203.mp3",
+  "dur": 2.06
+ },
+ {
+  "key": "L|fertig",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-fertig-c22a76b247.mp3",
+  "dur": 0.96
+ },
+ {
+  "key": "L|Endlich! Mein Zimmer ist fertig.",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-endlich-mein-zimmer-ist-fertig-b7f9e583fa.mp3",
+  "dur": 2.93
+ },
+ {
+  "key": "L|modern",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-modern-89ea0ec651.mp3",
+  "dur": 0.86
+ },
+ {
+  "key": "L|Die Küche ist hell und modern.",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-die-kueche-ist-hell-und-modern-ab749b26ff.mp3",
+  "dur": 1.9
+ },
+ {
+  "key": "L|liegen",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-liegen-4b3af4d995.mp3",
+  "dur": 0.72
+ },
+ {
+  "key": "L|Das Handy liegt auf dem Tisch.",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-das-handy-liegt-auf-dem-tisch-7cbf32d6f7.mp3",
+  "dur": 1.9
+ },
+ {
+  "key": "L|stehen",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-stehen-9b518c109c.mp3",
+  "dur": 0.65
+ },
+ {
+  "key": "L|hängen",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-haengen-35b3b65633.mp3",
+  "dur": 0.67
+ },
+ {
+  "key": "L|Das Bild hängt an der Wand.",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-das-bild-haengt-an-der-wand-4331fc9f66.mp3",
+  "dur": 1.61
+ },
+ {
+  "key": "L|die Wand",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-die-wand-59fcc84ade.mp3",
+  "dur": 0.72
+ },
+ {
+  "key": "L|Die Wand im Kinderzimmer ist blau.",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-die-wand-im-kinderzimmer-ist-blau-3b304c8977.mp3",
+  "dur": 2.3
+ },
+ {
+  "key": "L|das Chaos",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-das-chaos-fb0d52b7e7.mp3",
+  "dur": 1.1
+ },
+ {
+  "key": "L|Überall Kisten – so ein Chaos!",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-ueberall-kisten-so-ein-chaos-e480499c07.mp3",
+  "dur": 3.55
+ },
+ {
+  "key": "L|die Ordnung",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-die-ordnung-e5507e3887.mp3",
+  "dur": 1.3
+ },
+ {
+  "key": "L|Jetzt ist alles in Ordnung.",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-jetzt-ist-alles-in-ordnung-f7836e1900.mp3",
+  "dur": 1.49
+ },
+ {
+  "key": "L|der Balkon",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-der-balkon-bf1c1250c4.mp3",
+  "dur": 1.01
+ },
+ {
+  "key": "L|Wir trinken Tee auf dem Balkon.",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-wir-trinken-tee-auf-dem-balkon-0b8186d9c3.mp3",
+  "dur": 2.09
+ },
+ {
+  "key": "L|klappen",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-klappen-17acc2fff4.mp3",
+  "dur": 0.79
+ },
+ {
+  "key": "L|Klappt alles? – Ja, alles klappt!",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-klappt-alles-ja-alles-klappt-4a37daed77.mp3",
+  "dur": 2.88
+ },
+ {
+  "key": "L|versuchen",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-versuchen-d0bb571264.mp3",
+  "dur": 0.94
+ },
+ {
+  "key": "L|Ich versuche es noch einmal.",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-ich-versuche-es-noch-einmal-e9037b6583.mp3",
+  "dur": 1.66
+ },
+ {
+  "key": "L|ausprobieren",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-ausprobieren-1a5eb33139.mp3",
+  "dur": 1.01
+ },
+ {
+  "key": "L|Ich probiere das neue Bett aus.",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-ich-probiere-das-neue-bett-aus-2f39e88142.mp3",
+  "dur": 1.94
+ },
+ {
+  "key": "L|anmachen",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-anmachen-d4332ec521.mp3",
+  "dur": 0.79
+ },
+ {
+  "key": "L|Machst du bitte das Licht an?",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-machst-du-bitte-das-licht-an-ea1b8b6a19.mp3",
+  "dur": 1.68
+ },
+ {
+  "key": "L|ausmachen",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-ausmachen-5fac4778ec.mp3",
+  "dur": 0.98
+ },
+ {
+  "key": "L|Mach bitte den Fernseher aus!",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-mach-bitte-den-fernseher-aus-338f838d32.mp3",
+  "dur": 1.85
+ },
+ {
+  "key": "L|nehmen",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-nehmen-af5516453b.mp3",
+  "dur": 0.58
+ },
+ {
+  "key": "L|Ich nehme die kleine Kiste.",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-ich-nehme-die-kleine-kiste-8a6ec01fe3.mp3",
+  "dur": 1.61
+ },
+ {
+  "key": "L|anziehen",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-anziehen-0f896c6cee.mp3",
+  "dur": 0.89
+ },
+ {
+  "key": "L|Es ist kalt. Zieh die Jacke an!",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-es-ist-kalt-zieh-die-jacke-an-d140155f29.mp3",
+  "dur": 2.52
+ },
+ {
+  "key": "L|das Fernsehen",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-das-fernsehen-f56d5ca76d.mp3",
+  "dur": 1.13
+ },
+ {
+  "key": "L|Was kommt heute im Fernsehen?",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-was-kommt-heute-im-fernsehen-3aceed381e.mp3",
+  "dur": 1.75
+ },
+ {
+  "key": "L|langsam",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-langsam-f4062cc40f.mp3",
+  "dur": 0.94
+ },
+ {
+  "key": "L|Langsam, bitte! Die Kiste ist schwer.",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-langsam-bitte-die-kiste-ist-schwer-a52a43897b.mp3",
+  "dur": 2.88
+ },
+ {
+  "key": "L|der Flur",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-der-flur-dd9c1482f7.mp3",
+  "dur": 0.82
+ },
+ {
+  "key": "L|Die Schuhe stehen im Flur.",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-die-schuhe-stehen-im-flur-d908735b27.mp3",
+  "dur": 1.58
+ },
+ {
+  "key": "L|die Küche",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-die-kueche-39b4d97d6d.mp3",
+  "dur": 0.7
+ },
+ {
+  "key": "L|Mama kocht in der Küche.",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-mama-kocht-in-der-kueche-bfeed1ead9.mp3",
+  "dur": 1.7
+ },
+ {
+  "key": "L|das Kinderzimmer",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-das-kinderzimmer-03c5019d08.mp3",
+  "dur": 1.15
+ },
+ {
+  "key": "L|Mein Kinderzimmer ist klein, aber schön.",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-mein-kinderzimmer-ist-klein-aber-schoen-f17a4082e8.mp3",
+  "dur": 2.81
+ },
+ {
+  "key": "L|das Wohnzimmer",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-das-wohnzimmer-2fac48d505.mp3",
+  "dur": 1.01
+ },
+ {
+  "key": "L|Wir sehen im Wohnzimmer fern.",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-wir-sehen-im-wohnzimmer-fern-c7aab06351.mp3",
+  "dur": 1.85
+ },
+ {
+  "key": "L|das Schlafzimmer",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-das-schlafzimmer-99fbcfa43b.mp3",
+  "dur": 1.08
+ },
+ {
+  "key": "L|Das Schlafzimmer ist oben.",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-das-schlafzimmer-ist-oben-1671fd6a1c.mp3",
+  "dur": 1.46
+ },
+ {
+  "key": "L|die Terrasse",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-die-terrasse-d39dab695d.mp3",
+  "dur": 0.74
+ },
+ {
+  "key": "L|Im Sommer essen wir auf der Terrasse.",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-im-sommer-essen-wir-auf-der-terrasse-3510401fd4.mp3",
+  "dur": 2.06
+ },
+ {
+  "key": "L|der Garten",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-der-garten-fee2ccdd7e.mp3",
+  "dur": 1.2
+ },
+ {
+  "key": "L|Der Hund spielt im Garten.",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-der-hund-spielt-im-garten-36696ea4ab.mp3",
+  "dur": 1.85
+ },
+ {
+  "key": "L|die Toilette",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-die-toilette-1dbff61832.mp3",
+  "dur": 0.94
+ },
+ {
+  "key": "L|Entschuldigung, wo ist die Toilette?",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-entschuldigung-wo-ist-die-toilette-55278d8303.mp3",
+  "dur": 2.28
+ },
+ {
+  "key": "L|das Bad",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-das-bad-ae50b1c98b.mp3",
+  "dur": 0.74
+ },
+ {
+  "key": "L|Das Bad ist neben dem Kinderzimmer.",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-das-bad-ist-neben-dem-kinderzimmer-5d784b9b63.mp3",
+  "dur": 2.21
+ },
+ {
+  "key": "L|die Garage",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-die-garage-0608fa2943.mp3",
+  "dur": 0.89
+ },
+ {
+  "key": "L|Das Auto steht in der Garage.",
+  "voice": "de-DE-Chirp3-HD-Kore",
+  "rate": 0.9,
+  "file": "L-das-auto-steht-in-der-garage-3e590fc223.mp3",
+  "dur": 1.9
+ },
+ {
+  "key": "N|Im Flur? Nein, nein!",
+  "voice": "de-DE-Chirp3-HD-Puck",
+  "rate": 1,
+  "file": "N-im-flur-nein-nein-115f88fa16.mp3",
+  "dur": 2.28
+ },
+ {
+  "key": "N|In der Küche? Nein, nein!",
+  "voice": "de-DE-Chirp3-HD-Puck",
+  "rate": 1,
+  "file": "N-in-der-kueche-nein-nein-4c9a979c86.mp3",
+  "dur": 1.9
+ },
+ {
+  "key": "N|Im Wohnzimmer? Nein, nein!",
+  "voice": "de-DE-Chirp3-HD-Puck",
+  "rate": 1,
+  "file": "N-im-wohnzimmer-nein-nein-73173b442a.mp3",
+  "dur": 2.93
+ },
+ {
+  "key": "N|Im Kinderzimmer? Nein, nein!",
+  "voice": "de-DE-Chirp3-HD-Puck",
+  "rate": 1,
+  "file": "N-im-kinderzimmer-nein-nein-61d62be8c5.mp3",
+  "dur": 2.52
+ },
+ {
+  "key": "N|Im Bad? Nein, nein!",
+  "voice": "de-DE-Chirp3-HD-Puck",
+  "rate": 1,
+  "file": "N-im-bad-nein-nein-fbc7c379d7.mp3",
+  "dur": 2.16
+ },
+ {
+  "key": "N|In der Toilette? Nein, nein!",
+  "voice": "de-DE-Chirp3-HD-Puck",
+  "rate": 1,
+  "file": "N-in-der-toilette-nein-nein-3b3916e8cf.mp3",
+  "dur": 2.33
+ },
+ {
+  "key": "N|Im Schlafzimmer? Nein, nein!",
+  "voice": "de-DE-Chirp3-HD-Puck",
+  "rate": 1,
+  "file": "N-im-schlafzimmer-nein-nein-11529a668d.mp3",
+  "dur": 2.78
+ },
+ {
+  "key": "N|In der Garage? Komisch!",
+  "voice": "de-DE-Chirp3-HD-Puck",
+  "rate": 1,
+  "file": "N-in-der-garage-komisch-c5b1329d15.mp3",
+  "dur": 2.47
+ },
+ {
+  "key": "N|Auf der Terrasse? Komisch!",
+  "voice": "de-DE-Chirp3-HD-Puck",
+  "rate": 1,
+  "file": "N-auf-der-terrasse-komisch-11c105d234.mp3",
+  "dur": 2.23
+ },
+ {
+  "key": "N|Auf dem Balkon? Komisch!",
+  "voice": "de-DE-Chirp3-HD-Puck",
+  "rate": 1,
+  "file": "N-auf-dem-balkon-komisch-b4889f61cb.mp3",
+  "dur": 2.02
+ },
+ {
+  "key": "N|Im Garten? Komisch!",
+  "voice": "de-DE-Chirp3-HD-Puck",
+  "rate": 1,
+  "file": "N-im-garten-komisch-12074bc3a8.mp3",
+  "dur": 1.92
+ },
+ {
+  "key": "N|Hallo! Heute ist Umzugstag!",
+  "voice": "de-DE-Chirp3-HD-Puck",
+  "rate": 1,
+  "file": "N-hallo-heute-ist-umzugstag-7b47abd906.mp3",
+  "dur": 2.33
+ },
+ {
+  "key": "N|Los geht's!",
+  "voice": "de-DE-Chirp3-HD-Puck",
+  "rate": 1,
+  "file": "N-los-geht-s-8d7e2bfb77.mp3",
+  "dur": 0.89
+ },
+ {
+  "key": "N|Hör gut zu!",
+  "voice": "de-DE-Chirp3-HD-Puck",
+  "rate": 1,
+  "file": "N-hoer-gut-zu-65d7e752b3.mp3",
+  "dur": 0.94
+ },
+ {
+  "key": "N|Auspacken!",
+  "voice": "de-DE-Chirp3-HD-Puck",
+  "rate": 1,
+  "file": "N-auspacken-c98549e953.mp3",
+  "dur": 1.13
+ },
+ {
+  "key": "N|Super!",
+  "voice": "de-DE-Chirp3-HD-Puck",
+  "rate": 1,
+  "file": "N-super-d681a9ceaf.mp3",
+  "dur": 0.77
+ },
+ {
+  "key": "N|Prima!",
+  "voice": "de-DE-Chirp3-HD-Puck",
+  "rate": 1,
+  "file": "N-prima-37e8e4fdfe.mp3",
+  "dur": 0.65
+ },
+ {
+  "key": "N|Toll!",
+  "voice": "de-DE-Chirp3-HD-Puck",
+  "rate": 1,
+  "file": "N-toll-6e6762fd3c.mp3",
+  "dur": 0.62
+ },
+ {
+  "key": "N|Klasse!",
+  "voice": "de-DE-Chirp3-HD-Puck",
+  "rate": 1,
+  "file": "N-klasse-77882efa27.mp3",
+  "dur": 1.22
+ },
+ {
+  "key": "N|Sehr gut!",
+  "voice": "de-DE-Chirp3-HD-Puck",
+  "rate": 1,
+  "file": "N-sehr-gut-79b5785ec6.mp3",
+  "dur": 0.84
+ },
+ {
+  "key": "N|Fertig! Alles in Ordnung!",
+  "voice": "de-DE-Chirp3-HD-Puck",
+  "rate": 1,
+  "file": "N-fertig-alles-in-ordnung-2f9429109b.mp3",
+  "dur": 2.16
+ },
+ {
+  "key": "N|Alle Kisten sind im Haus!",
+  "voice": "de-DE-Chirp3-HD-Puck",
+  "rate": 1,
+  "file": "N-alle-kisten-sind-im-haus-0c9e8f6509.mp3",
+  "dur": 2.14
+ },
+ {
+  "key": "N|Super zugehört!",
+  "voice": "de-DE-Chirp3-HD-Puck",
+  "rate": 1,
+  "file": "N-super-zugehoert-1f4f2de2e2.mp3",
+  "dur": 1.2
+ }
+]

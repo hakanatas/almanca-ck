@@ -138,8 +138,9 @@ ol.steps li.done{ border-color:var(--ink); color:var(--ink); text-decoration:lin
 
 /* cümle */
 .satz{
-  font:400 27px/1.35 var(--hand); padding:12px 12px 10px; margin:4px 0 10px;
-  background:repeating-linear-gradient(transparent 0 33px, rgba(47,93,138,.18) 33px 35px);
+  font:400 27px/36px var(--hand); padding:12px 12px 10px; margin:4px 0 10px;
+  /* çizgi aralığı satır yüksekliğiyle aynı: iki satıra taşan cümlede çizgi yazının altından geçer */
+  background:repeating-linear-gradient(transparent 0 34px, rgba(47,93,138,.18) 34px 36px) 0 8px;
   border-left:3px solid var(--seal); border-radius:2px;
 }
 .satz .gap{ display:inline-block; min-width:2.6em; border-bottom:3px dashed var(--amber-deep); text-align:center; color:var(--amber-deep) }
@@ -187,8 +188,22 @@ button.next, button.cta{
 }
 button.speak{
   flex:none; width:42px; height:42px; border-radius:50%; border:2.5px solid var(--ink); background:var(--sheet);
-  font-size:19px; cursor:pointer;
+  font-size:19px; cursor:pointer; color:var(--ink);
 }
+button.speak.sm{ width:34px; height:34px; font-size:15px; border-width:2px }
+button.speak.playing{ background:var(--amber-wash); border-color:var(--amber-deep) }
+
+/* örnek cümle (Beispielsatz) */
+.bsp{ display:flex; align-items:flex-start; gap:10px; margin:10px 0 0; padding:8px 10px; border-left:3px solid var(--der); background:rgba(47,93,138,.06); border-radius:2px 10px 10px 2px }
+.bsp .de{ font:400 23px/1.2 var(--hand) }
+.bsp .tr{ font-size:14.5px; line-height:1.35; color:var(--ink-soft); font-style:italic }
+.bsp small{ display:block; font:600 11px var(--mono); letter-spacing:.06em; text-transform:uppercase; color:var(--der); margin-bottom:2px }
+
+/* Hör zu: dinleme düğmeleri */
+.listen{ display:grid; grid-template-columns:1.6fr 1fr; gap:10px; margin:4px 0 12px }
+.listen .card{ font-size:25px; padding:10px 6px; background:#f6e7c6 }
+.listen .card.slow{ background:var(--sheet) }
+.satz.read b{ font-weight:400; color:var(--amber-deep) }
 
 /* ── açılış ve defter katmanları ── */
 .overlay{
@@ -197,15 +212,18 @@ button.speak{
 }
 .overlay[hidden]{ display:none }
 .sheet{
-  position:relative; width:min(720px,100%); max-height:92vh; overflow:auto; background:var(--paper);
+  position:relative; width:min(880px,100%); max-height:92vh; overflow:auto; background:var(--paper);
   border:3px solid var(--ink); border-radius:10px 18px 12px 20px / 18px 10px 20px 12px;
   padding:28px clamp(18px,4vw,40px) 26px; box-shadow:8px 10px 0 rgba(0,0,0,.35);
   background-image:repeating-linear-gradient(transparent 0 31px, rgba(47,93,138,.12) 31px 32px);
 }
 .sheet h2{ font:400 clamp(46px,8vw,72px)/.9 var(--hand); margin:0 0 10px; transform:rotate(-2deg) }
 .sheet .lede{ font-size:18px; max-width:36em; margin:0 0 20px }
-.modes{ display:grid; grid-template-columns:1fr 1fr; gap:16px }
-@media (max-width:620px){ .modes{ grid-template-columns:1fr } }
+.modes{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px }
+@media (max-width:760px){ .modes{ grid-template-columns:1fr } }
+.introlinks{ margin:18px 0 0; display:flex; gap:10px; flex-wrap:wrap; align-items:center; font-size:15px; color:var(--ink-soft) }
+.introlinks button{ font:500 15px var(--body); background:var(--sheet); color:var(--ink); border:2px solid var(--ink); border-radius:14px 4px 12px 5px; padding:5px 12px; cursor:pointer }
+.sheet .x{ position:sticky; float:right; top:0; margin:-12px -14px 0 8px; z-index:2; width:40px; height:40px; border-radius:50%; border:2.5px solid var(--ink); background:var(--sheet); font-size:18px; cursor:pointer; color:var(--ink) }
 .mode{
   text-align:left; cursor:pointer; color:var(--ink); padding:16px 16px 14px; font:400 16px/1.4 var(--body);
   background:linear-gradient(160deg,#dcbd88, var(--kraft) 60%, var(--kraft-dark)); border:3px solid var(--ink);
@@ -215,12 +233,13 @@ button.speak{
 .mode b{ display:block; font:400 36px/1 var(--hand); margin:6px 0 6px }
 .mode:hover{ transform:rotate(-1deg) translateY(-2px) }
 
-/* tek, kurgulu açılış: kâğıt, başlık, iki kutu sırayla düşer */
+/* tek, kurgulu açılış: kâğıt, başlık, üç kutu sırayla düşer */
 .overlay:not([hidden]) .sheet{ animation:drop .55s cubic-bezier(.2,.9,.3,1.2) both }
 .overlay:not([hidden]) .sheet h2{ animation:drop .5s .18s cubic-bezier(.2,.9,.3,1.2) both }
 .overlay:not([hidden]) .sheet .lede{ animation:fade .5s .32s both }
 .overlay:not([hidden]) .mode:nth-child(1){ animation:drop .5s .45s cubic-bezier(.2,.9,.3,1.25) both }
 .overlay:not([hidden]) .mode:nth-child(2){ animation:drop .5s .6s cubic-bezier(.2,.9,.3,1.25) both }
+.overlay:not([hidden]) .mode:nth-child(3){ animation:drop .5s .75s cubic-bezier(.2,.9,.3,1.25) both }
 @keyframes drop{ from{ opacity:0; transform:translateY(-26px) rotate(-3deg) } }
 @keyframes fade{ from{ opacity:0 } }
 
@@ -228,7 +247,21 @@ table.defter{ width:100%; border-collapse:collapse; margin:8px 0 16px; font-size
 table.defter td{ padding:5px 6px; border-bottom:1.5px solid rgba(23,20,17,.15); vertical-align:top }
 table.defter td.de{ font:400 22px/1.1 var(--hand); white-space:nowrap }
 table.defter td.mk{ width:2em; text-align:center; font-family:var(--hand); font-size:22px }
+table.defter td.sp{ width:40px }
+table.defter td.tr small{ color:var(--ink-soft) }
 .mk.ok{ color:var(--das) } .mk.re{ color:var(--seal) }
+
+/* Wortliste */
+.btnrow.noprint button{ flex:none; min-width:0; font-size:22px; padding:6px 18px }
+.wl-sec{ font:400 30px/1 var(--hand); margin:22px 0 6px; padding-bottom:4px; border-bottom:2.5px solid var(--ink) }
+.wl-sec small{ font:italic 400 15px var(--body); color:var(--ink-soft); margin-left:8px }
+.wl-row{ display:grid; grid-template-columns:34px minmax(0,1fr) minmax(0,1.5fr); gap:4px 12px; align-items:start; padding:7px 0; border-bottom:1.5px solid rgba(23,20,17,.13) }
+.wl-w{ font:400 24px/1.1 var(--hand) }
+.wl-w small{ display:block; font:400 15px/1.3 var(--body); color:var(--ink) }
+.wl-w em{ display:block; font:italic 400 13px/1.3 var(--body); color:var(--ink-soft) }
+.wl-ex{ display:flex; gap:8px; align-items:flex-start; font-size:15.5px; line-height:1.35 }
+.wl-ex i{ color:var(--ink-soft) }
+@media (max-width:620px){ .wl-row{ grid-template-columns:34px minmax(0,1fr) } .wl-ex{ grid-column:2 / -1 } }
 .btnrow{ display:flex; gap:12px; flex-wrap:wrap }
 .btnrow button{ flex:1; min-width:200px; animation:none }
 .btnrow button.alt{ background:var(--sheet); color:var(--ink); border:2.5px solid var(--ink); box-shadow:3px 4px 0 var(--ink) }
@@ -247,6 +280,16 @@ details.teacher p{ margin:.4em 0 }
 @media (prefers-reduced-motion: reduce){
   *, *::before, *::after{ animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important }
 }
+/* Wortliste açıkken yazdırınca yalnızca liste basılır */
+@media print{
+  html, body{ background:#fff !important }
+  body.wl-open > *:not(#wl){ display:none !important }
+  body.wl-open #wl{ position:static; display:block; padding:0; background:none; backdrop-filter:none }
+  body.wl-open #wl .sheet{ width:100%; max-height:none; overflow:visible; border:0; box-shadow:none; padding:0; background:#fff; animation:none }
+  body.wl-open #wl .sheet h2, body.wl-open #wl .lede{ animation:none; transform:none }
+  #wl button, #wl .noprint, #wl .lede{ display:none !important }
+  .wl-row{ break-inside:avoid; grid-template-columns:minmax(0,1fr) minmax(0,1.5fr) }
+}
 </style>
 </head>
 <body>
@@ -258,6 +301,7 @@ details.teacher p{ margin:.4em 0 }
     </div>
     <div class="tools">
       <button id="soundBtn" aria-pressed="true">🔊 Ses açık</button>
+      <button id="wlBtn">📒 Wortliste</button>
       <button id="modeBtn">Oyun seç</button>
     </div>
   </header>
@@ -282,9 +326,12 @@ details.teacher p{ margin:.4em 0 }
 
   <details class="teacher">
     <summary>Öğretmen notu</summary>
-    <p>Kelimeler ve Türkçe anlamlar kaynak kodun başındaki <code>MOEBEL</code> (eşyalar) ve <code>WORTE</code> (diğer kelimeler) listelerinde durur; kod bilmeden metinleri değiştirebilirsiniz. Artikel renkleri çalışma kâğıdıyla aynıdır: der mavi, die kırmızı, das yeşil.</p>
-    <p><b>Einrichten:</b> 11 eşya. Her eşyada öğrenci sırayla kelimeyi seçer, artikeli mühürler, eşyayı odaya sürükler ve Positionsverb + Dativ cümlesini kurar (steht / liegt / hängt, im / in der). Yanlış odaya bırakınca Nokta cümleyi Almanca söyler: “Der Kühlschrank im Bad? Komisch!”</p>
-    <p><b>Wortkisten:</b> Listedeki diğer kelimeler (sıfatlar, fiiller, odalar…) iki yönlü sorulur. Yanlış yapılan kelime turun sonunda bir kez daha gelir. Sonunda “Nokta'nın defteri” ilk denemede bilinenleri ve tekrar bakılacakları gösterir. Telaffuz Google TTS ile üretilmiş Almanca seslerle okunur; listeye yeni eklediğiniz bir kelime için tarayıcının Almanca sesi devreye girer.</p>
+    <p>Kelimeler, Türkçe anlamlar ve örnek cümleler kaynak kodun <code>&lt;script id="daten"&gt;</code> bölümündeki <code>MOEBEL</code> (eşyalar) ve <code>WORTE</code> (diğer kelimeler) listelerinde durur; kod bilmeden metinleri değiştirebilirsiniz. Artikel renkleri çalışma kâğıdıyla aynıdır: der mavi, die kırmızı, das yeşil.</p>
+    <p><b>Einrichten:</b> 11 eşya. Her eşyada öğrenci sırayla kelimeyi seçer, artikeli mühürler, eşyayı odaya sürükler ve Positionsverb + Dativ cümlesini kurar (steht / liegt / hängt, im / in der). Yanlış odaya bırakınca Nokta odayı Almanca tekrar eder: “Im Bad? Nein, nein!”, dışarıdaki bir yer için “In der Garage? Komisch!”</p>
+    <p><b>Wortkisten:</b> Listedeki diğer kelimeler (sıfatlar, fiiller, odalar…) iki yönlü sorulur. Doğru cevaptan sonra kelime ve taşınma hikâyesinden bir örnek cümle seslendirilir; öğrenci “Sıradaki kutu” ile kendi hızında ilerler. Yanlış yapılan kelime turun sonunda bir kez daha gelir.</p>
+    <p><b>Hör zu!:</b> Dinleme oyunu. 8 cümle (ör. “Der Sessel steht im Schlafzimmer.”) yalnızca sesle verilir. Öğrenci önce eşyayı, sonra odayı bulur; 🐢 düğmesi cümleyi yavaş okur, yanlış odada yavaş sürüm kendiliğinden çalar. Sonunda cümle yazılı ve Türkçesiyle gösterilir.</p>
+    <p><b>Wortliste:</b> Bütün kelimeler, Türkçe anlamları ve örnek cümleleri sesli olarak tek sayfada. Listeyi açıp “Yazdır” derseniz yalnızca liste kâğıda basılır. Her oyunun sonunda “Nokta'nın defteri” ilk denemede bilinenleri (✓) ve tekrar bakılacakları (✎) gösterir.</p>
+    <p><b>Sesler:</b> Bütün Almanca sesler Google Cloud Text-to-Speech (Chirp 3 HD) ile üretilip dosyaya gömüldü; internet gerekmez. Öğretmen sesi <i>Kore</i>, Nokta'nın sesi <i>Puck</i>; dinleme oyunundaki yavaş sürüm ayrıca üretildi. Listeye yeni eklediğiniz bir kelime için, sesler yeniden üretilene kadar tarayıcının Almanca sesi devreye girer.</p>
   </details>
 </div>
 
@@ -294,8 +341,10 @@ details.teacher p{ margin:.4em 0 }
     <p class="lede">Nokta'nın ailesi yeni eve taşındı. Kamyon kutularla dolu, ev darmadağın: <b>das Chaos</b>! Kutuları aç, eşyaları yerleştir, kelimeleri öğren ve evi <b>die Ordnung</b>'a kavuştur.</p>
     <div class="modes">
       <button class="mode" id="m1Btn"><b>Einrichten</b>Eşyaları yerleştir. Kutuyu aç, kelimeyi ve artikeli bul, eşyayı odasına taşı, Almanca cümleyi kur. 11 eşya.</button>
-      <button class="mode" id="m2Btn"><b>Wortkisten</b>Listedeki diğer kelimeler: sıfatlar, fiiller, odalar. Türkçeden Almancaya, Almancadan Türkçeye. 12 kutu.</button>
+      <button class="mode" id="m2Btn"><b>Wortkisten</b>Listedeki diğer kelimeler: sıfatlar, fiiller, odalar. Türkçeden Almancaya, Almancadan Türkçeye, örnek cümlelerle. 12 kutu.</button>
+      <button class="mode" id="m3Btn"><b>Hör zu!</b>Dinle ve yerleştir. Cümleyi yalnızca duyarsın: hangi eşya, hangi odaya? İstersen yavaş dinle. 8 cümle.</button>
     </div>
+    <p class="introlinks">Önce kelimelere göz atmak ister misin? <button id="introWl">📒 Wortliste</button></p>
   </div>
 </div>
 
@@ -306,12 +355,22 @@ details.teacher p{ margin:.4em 0 }
     <table class="defter" id="repTable"></table>
     <div class="btnrow">
       <button class="cta" id="againBtn">Bir daha oyna</button>
-      <button class="cta alt" id="otherBtn">Diğer oyun</button>
+      <button class="cta alt" id="otherBtn">Oyun seç</button>
     </div>
   </div>
 </div>
 
-<script>
+<div class="overlay" id="wl" hidden>
+  <div class="sheet" role="dialog" aria-labelledby="wlTitle">
+    <button class="x" id="wlClose" aria-label="Listeyi kapat">✕</button>
+    <h2 id="wlTitle">Wortliste</h2>
+    <p class="lede">Lektion 19'un bütün kelimeleri. 🔊 ile dinle, örnek cümleleri sesli tekrar et.</p>
+    <div class="btnrow noprint"><button class="cta alt" id="wlPrint">🖨️ Listeyi yazdır</button></div>
+    <div id="wlBody"></div>
+  </div>
+</div>
+
+<script id="sesler">
 window.CLIPS = {/*SESLER*/};
 </script>
 <script>
@@ -445,10 +504,13 @@ N.murekkep = function (ctx, opts = {}) {
 })();
 
 </script>
-<script>
+<script id="daten">
 /* ════════════════════════════════════════════════════════════════
-   ÖĞRETMEN: kelimeler ve anlamlar burada. Kod bilmeden değiştirebilirsiniz.
-   art: der / die / das   tr: Türkçe anlam
+   ÖĞRETMEN: kelimeler, anlamlar ve örnek cümleler burada.
+   Kod bilmeden değiştirebilirsiniz.
+   art: der / die / das   tr: Türkçe anlam   bsp / bspTr: örnek cümle ve Türkçesi
+   Not: Seslerin listesi de buradan çıkarılır (clipTexts). Yeni bir metin eklerseniz
+   sesler yeniden üretilene kadar tarayıcının Almanca sesi okur.
    ════════════════════════════════════════════════════════════════ */
 const MOEBEL = [
   { id:'bett',         art:'das', de:'Bett',         tr:'yatak',           verb:'steht', rooms:['schlaf','kinder'],          why:'Üzerinde uyuruz. Hangi odalarda uyuyoruz?' },
@@ -463,73 +525,106 @@ const MOEBEL = [
   { id:'kuehlschrank', art:'der', de:'Kühlschrank',  tr:'buzdolabı',       verb:'steht', rooms:['kueche'],                   why:'Yiyecekleri soğuk tutar. Yemek nerede hazırlanır?' },
   { id:'regal',        art:'das', de:'Regal',        tr:'raf',             verb:'steht', rooms:['kinder','wohn','flur'],     why:'Kitap rafı: çocuk odası, oturma odası ya da koridor.' },
 ];
-/* g: anlamı birbirine çok yakın kelimeler aynı soruda şık olarak çıkmasın */
+/* g: anlamı birbirine çok yakın kelimeler aynı soruda şık olarak çıkmasın
+   k: kelime listesindeki bölüm (raum: ev ve odalar, nomen: diğer isimler, verb: fiiller, wort: sıfatlar ve diğerleri) */
 const WORTE = [
-  { de:'fehlen', tr:'eksik olmak; özlenmek', note:'fehlen + Dativ: Du fehlst mir. (Seni özledim.)' },
-  { de:'unser / unsere', tr:'bizim', say:'unser, unsere' },
-  { de:'euer / eure', tr:'sizin', say:'euer, eure' },
-  { de:'denn', tr:'çünkü' },
-  { de:'auspacken', tr:'(kutudan) çıkarmak, paketi açmak', g:'ac' },
-  { de:'komisch', tr:'tuhaf, garip' },
-  { de:'eigentlich', tr:'aslında' },
-  { de:'wichtig', tr:'önemli' },
-  { de:'anders', tr:'farklı, başka türlü' },
-  { de:'jung', tr:'genç' },
-  { de:'nervös', tr:'gergin, heyecanlı', g:'stres' },
-  { de:'stressig', tr:'stresli, yorucu', g:'stres' },
-  { de:'streng', tr:'katı, sıkı (kuralcı)' },
-  { de:'fertig', tr:'hazır, bitmiş' },
-  { de:'modern', tr:'modern, çağdaş' },
-  { de:'liegen', tr:'yatay durmak, yatmak' },
-  { de:'stehen', tr:'dik durmak, ayakta durmak' },
-  { de:'hängen', tr:'asılı durmak' },
-  { de:'Wand', art:'die', tr:'duvar' },
-  { de:'Chaos', art:'das', tr:'kaos, dağınıklık', g:'duzen' },
-  { de:'Ordnung', art:'die', tr:'düzen', g:'duzen' },
-  { de:'Balkon', art:'der', tr:'balkon' },
-  { de:'klappen', tr:'yolunda gitmek, işe yaramak' },
-  { de:'versuchen', tr:'denemek, çabalamak', g:'dene' },
-  { de:'ausprobieren', tr:'(bir şeyi) denemek, test etmek', g:'dene' },
-  { de:'anmachen', tr:'açmak (ışık, televizyon)', g:'ac' },
-  { de:'ausmachen', tr:'kapatmak (ışık, televizyon)' },
-  { de:'nehmen', tr:'almak', note:'du nimmst, er/es/sie nimmt' },
-  { de:'anziehen', tr:'giymek' },
-  { de:'Fernsehen', art:'das', tr:'televizyon (yayını)' },
-  { de:'langsam', tr:'yavaş' },
-  { de:'Flur', art:'der', tr:'koridor, hol' },
-  { de:'Küche', art:'die', tr:'mutfak' },
-  { de:'Kinderzimmer', art:'das', tr:'çocuk odası' },
-  { de:'Wohnzimmer', art:'das', tr:'oturma odası' },
-  { de:'Schlafzimmer', art:'das', tr:'yatak odası' },
-  { de:'Terrasse', art:'die', tr:'teras' },
-  { de:'Garten', art:'der', tr:'bahçe' },
-  { de:'Toilette', art:'die', tr:'tuvalet' },
-  { de:'Bad', art:'das', tr:'banyo' },
-  { de:'Garage', art:'die', tr:'garaj' },
+  { k:'verb', de:'fehlen', tr:'eksik olmak; özlenmek', note:'fehlen + Dativ: Du fehlst mir. (Seni özledim.)', bsp:'Oh nein, eine Kiste fehlt!', bspTr:'Eyvah, bir kutu eksik!' },
+  { k:'wort', de:'unser / unsere', tr:'bizim', say:'unser, unsere', note:'der/das → unser · die → unsere', bsp:'Das ist unser Haus und das ist unsere Küche.', bspTr:'Bu bizim evimiz, bu da bizim mutfağımız.' },
+  { k:'wort', de:'euer / eure', tr:'sizin', say:'euer, eure', note:'der/das → euer · die → eure', bsp:'Ist das euer Balkon? Und wo ist eure Garage?', bspTr:'Bu sizin balkonunuz mu? Peki garajınız nerede?' },
+  { k:'wort', de:'denn', tr:'çünkü', bsp:'Ich bin müde, denn ich trage viele Kisten.', bspTr:'Yorgunum, çünkü bir sürü kutu taşıyorum.' },
+  { k:'verb', de:'auspacken', tr:'(kutudan) çıkarmak, paketi açmak', g:'ac', note:'ayrılabilen fiil: Wir packen aus.', bsp:'Wir packen die Kisten aus.', bspTr:'Kutuları açıp boşaltıyoruz.' },
+  { k:'wort', de:'komisch', tr:'tuhaf, garip', bsp:'Der Kühlschrank im Bad? Das ist komisch!', bspTr:'Buzdolabı banyoda mı? Bu çok tuhaf!' },
+  { k:'wort', de:'eigentlich', tr:'aslında', bsp:'Eigentlich ist das Haus sehr schön.', bspTr:'Aslında ev çok güzel.' },
+  { k:'wort', de:'wichtig', tr:'önemli', bsp:'Ordnung ist für Mama sehr wichtig.', bspTr:'Düzen annem için çok önemli.' },
+  { k:'wort', de:'anders', tr:'farklı, başka türlü', bsp:'Das neue Haus ist ganz anders.', bspTr:'Yeni ev bambaşka.' },
+  { k:'wort', de:'jung', tr:'genç', bsp:'Unsere Nachbarn sind jung und nett.', bspTr:'Komşularımız genç ve sevimli.' },
+  { k:'wort', de:'nervös', tr:'gergin, heyecanlı', g:'stres', bsp:'Morgen ist mein erster Schultag. Ich bin nervös.', bspTr:'Yarın yeni okulda ilk günüm. Heyecanlıyım.' },
+  { k:'wort', de:'stressig', tr:'stresli, yorucu', g:'stres', bsp:'Ein Umzug ist immer stressig.', bspTr:'Taşınmak her zaman streslidir.' },
+  { k:'wort', de:'streng', tr:'katı, sıkı (kuralcı)', bsp:'Unsere Lehrerin ist sehr streng.', bspTr:'Öğretmenimiz çok katı.' },
+  { k:'wort', de:'fertig', tr:'hazır, bitmiş', bsp:'Endlich! Mein Zimmer ist fertig.', bspTr:'Sonunda! Odam hazır.' },
+  { k:'wort', de:'modern', tr:'modern, çağdaş', bsp:'Die Küche ist hell und modern.', bspTr:'Mutfak aydınlık ve modern.' },
+  { k:'verb', de:'liegen', tr:'yatay durmak, yatmak', bsp:'Das Handy liegt auf dem Tisch.', bspTr:'Telefon masanın üstünde duruyor.' },
+  { k:'verb', de:'stehen', tr:'dik durmak, ayakta durmak', bsp:'Das Sofa steht im Wohnzimmer.', bspTr:'Kanepe oturma odasında duruyor.' },
+  { k:'verb', de:'hängen', tr:'asılı durmak', bsp:'Das Bild hängt an der Wand.', bspTr:'Resim duvarda asılı.' },
+  { k:'nomen', de:'Wand', art:'die', tr:'duvar', bsp:'Die Wand im Kinderzimmer ist blau.', bspTr:'Çocuk odasının duvarı mavi.' },
+  { k:'nomen', de:'Chaos', art:'das', tr:'kaos, dağınıklık', g:'duzen', bsp:'Überall Kisten – so ein Chaos!', bspTr:'Her yerde kutular – ne karmaşa!' },
+  { k:'nomen', de:'Ordnung', art:'die', tr:'düzen', g:'duzen', bsp:'Jetzt ist alles in Ordnung.', bspTr:'Artık her şey yolunda.' },
+  { k:'raum', de:'Balkon', art:'der', tr:'balkon', bsp:'Wir trinken Tee auf dem Balkon.', bspTr:'Balkonda çay içiyoruz.' },
+  { k:'verb', de:'klappen', tr:'yolunda gitmek, işe yaramak', bsp:'Klappt alles? – Ja, alles klappt!', bspTr:'Her şey yolunda mı? – Evet, her şey yolunda!' },
+  { k:'verb', de:'versuchen', tr:'denemek, çabalamak', g:'dene', bsp:'Ich versuche es noch einmal.', bspTr:'Bir kez daha deniyorum.' },
+  { k:'verb', de:'ausprobieren', tr:'(bir şeyi) denemek, test etmek', g:'dene', note:'ayrılabilen fiil: Ich probiere aus.', bsp:'Ich probiere das neue Bett aus.', bspTr:'Yeni yatağı deniyorum.' },
+  { k:'verb', de:'anmachen', tr:'açmak (ışık, televizyon)', g:'ac', note:'ayrılabilen fiil: Ich mache an.', bsp:'Machst du bitte das Licht an?', bspTr:'Lütfen ışığı açar mısın?' },
+  { k:'verb', de:'ausmachen', tr:'kapatmak (ışık, televizyon)', note:'ayrılabilen fiil: Ich mache aus.', bsp:'Mach bitte den Fernseher aus!', bspTr:'Lütfen televizyonu kapat!' },
+  { k:'verb', de:'nehmen', tr:'almak', note:'du nimmst, er/es/sie nimmt', bsp:'Ich nehme die kleine Kiste.', bspTr:'Küçük kutuyu ben alıyorum.' },
+  { k:'verb', de:'anziehen', tr:'giymek', note:'ayrılabilen fiil: Ich ziehe an.', bsp:'Es ist kalt. Zieh die Jacke an!', bspTr:'Hava soğuk. Montunu giy!' },
+  { k:'nomen', de:'Fernsehen', art:'das', tr:'televizyon (yayını)', bsp:'Was kommt heute im Fernsehen?', bspTr:'Bugün televizyonda ne var?' },
+  { k:'wort', de:'langsam', tr:'yavaş', bsp:'Langsam, bitte! Die Kiste ist schwer.', bspTr:'Yavaş lütfen! Kutu ağır.' },
+  { k:'raum', de:'Flur', art:'der', tr:'koridor, hol', bsp:'Die Schuhe stehen im Flur.', bspTr:'Ayakkabılar koridorda duruyor.' },
+  { k:'raum', de:'Küche', art:'die', tr:'mutfak', bsp:'Mama kocht in der Küche.', bspTr:'Annem mutfakta yemek pişiriyor.' },
+  { k:'raum', de:'Kinderzimmer', art:'das', tr:'çocuk odası', bsp:'Mein Kinderzimmer ist klein, aber schön.', bspTr:'Çocuk odam küçük ama güzel.' },
+  { k:'raum', de:'Wohnzimmer', art:'das', tr:'oturma odası', bsp:'Wir sehen im Wohnzimmer fern.', bspTr:'Oturma odasında televizyon izliyoruz.' },
+  { k:'raum', de:'Schlafzimmer', art:'das', tr:'yatak odası', bsp:'Das Schlafzimmer ist oben.', bspTr:'Yatak odası üst katta.' },
+  { k:'raum', de:'Terrasse', art:'die', tr:'teras', bsp:'Im Sommer essen wir auf der Terrasse.', bspTr:'Yazın terasta yemek yiyoruz.' },
+  { k:'raum', de:'Garten', art:'der', tr:'bahçe', bsp:'Der Hund spielt im Garten.', bspTr:'Köpek bahçede oynuyor.' },
+  { k:'raum', de:'Toilette', art:'die', tr:'tuvalet', bsp:'Entschuldigung, wo ist die Toilette?', bspTr:'Affedersiniz, tuvalet nerede?' },
+  { k:'raum', de:'Bad', art:'das', tr:'banyo', bsp:'Das Bad ist neben dem Kinderzimmer.', bspTr:'Banyo çocuk odasının yanında.' },
+  { k:'raum', de:'Garage', art:'die', tr:'garaj', bsp:'Das Auto steht in der Garage.', bspTr:'Araba garajda duruyor.' },
 ];
-const ROUND2 = 12;
+const ROUND2 = 12, HOER = 8;
 
-/* ── odalar: sahnedeki yerleri (1100 × 640 tuval) ── */
+/* ── odalar: sahnedeki yerleri (1100 × 640 tuval); trLok: Türkçe "-de/-da" hâli ── */
 const ROOMS = [
-  { id:'flur',     art:'der', de:'Flur',         dat:'im Flur',          x:340, y:396, w:110, h:160, inside:1, col:'#efe3c8' },
-  { id:'kueche',   art:'die', de:'Küche',        dat:'in der Küche',     x:450, y:396, w:190, h:160, inside:1, col:'#e2ebda' },
-  { id:'wohn',     art:'das', de:'Wohnzimmer',   dat:'im Wohnzimmer',    x:640, y:396, w:240, h:160, inside:1, col:'#f2dfc8' },
-  { id:'kinder',   art:'das', de:'Kinderzimmer', dat:'im Kinderzimmer',  x:340, y:222, w:210, h:162, inside:1, col:'#dfe7ee' },
-  { id:'bad',      art:'das', de:'Bad',          dat:'im Bad',           x:550, y:222, w:110, h:162, inside:1, col:'#d8ebe8', resL:44 },
-  { id:'toilette', art:'die', de:'Toilette',     dat:'in der Toilette',  x:660, y:222, w:60,  h:162, inside:1, col:'#e7e1ed', resL:60 },
-  { id:'schlaf',   art:'das', de:'Schlafzimmer', dat:'im Schlafzimmer',  x:720, y:222, w:160, h:162, inside:1, col:'#f0dfdf' },
-  { id:'garage',   art:'die', de:'Garage',       dat:'in der Garage',    x:250, y:446, w:86,  h:114, ly:398 },
-  { id:'terrasse', art:'die', de:'Terrasse',     dat:'auf der Terrasse', x:884, y:468, w:84,  h:92 },
-  { id:'balkon',   art:'der', de:'Balkon',       dat:'auf dem Balkon',   x:884, y:300, w:82,  h:94 },
-  { id:'garten',   art:'der', de:'Garten',       dat:'im Garten',        x:968, y:380, w:132, h:180 },
+  { id:'flur',     art:'der', de:'Flur',         dat:'im Flur',          trLok:'koridorda',       x:340, y:396, w:110, h:160, inside:1, col:'#efe3c8' },
+  { id:'kueche',   art:'die', de:'Küche',        dat:'in der Küche',     trLok:'mutfakta',        x:450, y:396, w:190, h:160, inside:1, col:'#e2ebda' },
+  { id:'wohn',     art:'das', de:'Wohnzimmer',   dat:'im Wohnzimmer',    trLok:'oturma odasında', x:640, y:396, w:240, h:160, inside:1, col:'#f2dfc8' },
+  { id:'kinder',   art:'das', de:'Kinderzimmer', dat:'im Kinderzimmer',  trLok:'çocuk odasında',  x:340, y:222, w:210, h:162, inside:1, col:'#dfe7ee' },
+  { id:'bad',      art:'das', de:'Bad',          dat:'im Bad',           trLok:'banyoda',         x:550, y:222, w:110, h:162, inside:1, col:'#d8ebe8', resL:44 },
+  { id:'toilette', art:'die', de:'Toilette',     dat:'in der Toilette',  trLok:'tuvalette',       x:660, y:222, w:60,  h:162, inside:1, col:'#e7e1ed', resL:60, ly:268 },
+  { id:'schlaf',   art:'das', de:'Schlafzimmer', dat:'im Schlafzimmer',  trLok:'yatak odasında',  x:720, y:222, w:160, h:162, inside:1, col:'#f0dfdf' },
+  { id:'garage',   art:'die', de:'Garage',       dat:'in der Garage',    trLok:'garajda',         x:250, y:446, w:86,  h:114, ly:398 },
+  { id:'terrasse', art:'die', de:'Terrasse',     dat:'auf der Terrasse', trLok:'terasta',         x:884, y:468, w:84,  h:92 },
+  { id:'balkon',   art:'der', de:'Balkon',       dat:'auf dem Balkon',   trLok:'balkonda',        x:884, y:300, w:82,  h:94 },
+  { id:'garten',   art:'der', de:'Garten',       dat:'im Garten',        trLok:'bahçede',         x:968, y:380, w:132, h:180 },
 ];
-const MO = Object.fromEntries(MOEBEL.map(m => [m.id, m]));
 const RO = Object.fromEntries(ROOMS.map(r => [r.id, r]));
+
+/* Nokta'nın Almanca repliği (Nokta'nın sesiyle okunur) */
+const NOKTA = {
+  start1:'Hallo! Heute ist Umzugstag!', start2:'Los geht\'s!', start3:'Hör gut zu!', open:'Auspacken!',
+  lob:['Super!', 'Prima!', 'Toll!', 'Klasse!', 'Sehr gut!'],
+  end1:'Fertig! Alles in Ordnung!', end2:'Alle Kisten sind im Haus!', end3:'Super zugehört!',
+};
+const VERB_TR = { steht:'duruyor', liegt:'serili', hängt:'asılı' };
+
+/* ── metin yardımcıları (sesler de bunlardan üretilir) ── */
+const cap = (s) => s[0].toUpperCase() + s.slice(1);
+const capTr = (s) => s[0].toLocaleUpperCase('tr') + s.slice(1);
+const sayText = (w) => w.say || (w.art ? `${w.art} ${w.de}` : w.de);
+const satzDe = (m, roomId) => `${cap(m.art)} ${m.de} ${m.verb} ${RO[roomId].dat}.`;
+const satzTr = (m, roomId) => `${capTr(m.tr)} ${RO[roomId].trLok} ${VERB_TR[m.verb]}.`;
+const nope = (r) => `${cap(r.dat)}? ${r.inside ? 'Nein, nein!' : 'Komisch!'}`;
+
+/* Oyunda seslendirilen bütün metinler. who: L = öğretmen sesi, S = aynı ses yavaş, N = Nokta */
+function clipTexts() {
+  const out = [], seen = new Set();
+  const add = (who, text) => { const k = who + '|' + text; if (!seen.has(k)) { seen.add(k); out.push({ who, text }); } };
+  MOEBEL.forEach((m) => {
+    add('L', m.de); add('L', `${m.art} ${m.de}`);
+    m.rooms.forEach((r) => { add('L', satzDe(m, r)); add('S', satzDe(m, r)); });
+  });
+  Object.keys(VERB_TR).forEach((v) => add('L', v));
+  WORTE.forEach((w) => { add('L', sayText(w)); if (w.bsp) add('L', w.bsp); });
+  ROOMS.forEach((r) => add('N', nope(r)));
+  [NOKTA.start1, NOKTA.start2, NOKTA.start3, NOKTA.open, ...NOKTA.lob, NOKTA.end1, NOKTA.end2, NOKTA.end3].forEach((t) => add('N', t));
+  return out;
+}
+</script>
+<script>
+const MO = Object.fromEntries(MOEBEL.map(m => [m.id, m]));
 const SIZE = { bett:[112,60], sessel:[62,56], teppich:[104,10], stuhl:[36,62], spiegel:[36,50], sofa:[124,56], schreibtisch:[92,56], tisch:[80,46], schrank:[66,124], kuehlschrank:[58,116], regal:[56,104] };
 
 /* ── yardımcılar ── */
 const $ = (s) => document.querySelector(s);
-const cap = (s) => s[0].toUpperCase() + s.slice(1);
 const shuffle = (a) => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
 const pick = (a) => a[Math.floor(Math.random() * a.length)];
 const ease = (t) => t * t * (3 - 2 * t);
@@ -538,14 +633,24 @@ const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const DUR = (s) => (RM ? s * .35 : s);
 const artW = (art, de) => `<span class="a-${art}">${art}</span> ${de}`;
 const wordHTML = (w) => (w.art ? artW(w.art, w.de) : w.de);
-const sayText = (w) => w.say || (w.art ? `${w.art} ${w.de}` : w.de);
+
+/* ── zamanlayıcı: oyun değişince eski oyunun bekleyen adımları çalışmasın ── */
+let GEN = 0;
+function later(fn, ms) { const g = GEN; return setTimeout(() => { if (g === GEN) fn(); }, ms); }
 
 /* ── ses ── */
 let soundOn = true, AC = null, deVoice = null;
+function ac() {
+  if (!AC) { try { AC = new (window.AudioContext || window.webkitAudioContext)(); } catch (e) { AC = null; } }
+  return AC;
+}
+/* iOS/Safari: ses ancak bir dokunuştan sonra açılır; ilk dokunuşta bağlamı uyandır */
+function unlockAudio() { const a = ac(); if (a && a.state === 'suspended') { try { a.resume(); } catch (e) {} } }
+addEventListener('pointerdown', unlockAudio, true); addEventListener('keydown', unlockAudio, true);
 function tone(f, d = .12, type = 'sine', v = .07, when = 0) {
   if (!soundOn) return;
   try {
-    AC = AC || new (window.AudioContext || window.webkitAudioContext)();
+    const AC = ac(); if (!AC) return;
     const o = AC.createOscillator(), g = AC.createGain(), t0 = AC.currentTime + when;
     o.type = type; o.frequency.value = f; g.gain.setValueAtTime(v, t0); g.gain.exponentialRampToValueAtTime(.0001, t0 + d);
     o.connect(g).connect(AC.destination); o.start(t0); o.stop(t0 + d + .03);
@@ -561,23 +666,59 @@ const sfx = {
 };
 function loadVoices() { try { const v = speechSynthesis.getVoices(); deVoice = v.find((x) => /^de(-|_)DE/i.test(x.lang)) || v.find((x) => /^de/i.test(x.lang)) || null; } catch (e) {} }
 if ('speechSynthesis' in window) { loadVoices(); speechSynthesis.onvoiceschanged = loadVoices; }
-/* Google TTS ile önceden üretilmiş Almanca sesler (CLIPS). Listede olmayan bir metin için tarayıcının Almanca sesi kullanılır. */
-let curAudio = null;
-function stopSpeech() { try { if (curAudio) { curAudio.pause(); curAudio = null; } if ('speechSynthesis' in window) speechSynthesis.cancel(); } catch (e) {} }
-function speak(txt) {
-  if (!soundOn) return;
-  stopSpeech();
-  const src = window.CLIPS && CLIPS[txt];
-  if (src) {
-    try { const a = new Audio(src); a.playbackRate = .92; curAudio = a; const p = a.play(); if (p && p.catch) p.catch(() => browserSpeak(txt)); return; } catch (e) {}
-  }
-  browserSpeak(txt);
+/* Google Cloud TTS ile önceden üretilmiş Almanca sesler (CLIPS). Anahtar: "ses|metin".
+   L = öğretmen sesi, S = aynı ses yavaş, N = Nokta. Listede olmayan bir metin için tarayıcının Almanca sesi kullanılır. */
+const BUF = new Map(), SPOKEN = [];
+let curSrc = null, curAudio = null, speakId = 0;
+const clipOf = (txt, who = 'L') => (window.CLIPS && CLIPS[who + '|' + txt]) || null;
+function b64buf(uri) { const s = atob(uri.slice(uri.indexOf(',') + 1)), u = new Uint8Array(s.length); for (let i = 0; i < s.length; i++) u[i] = s.charCodeAt(i); return u.buffer; }
+function decoded(key, uri) {
+  if (!BUF.has(key)) BUF.set(key, new Promise((res, rej) => { try { ac().decodeAudioData(b64buf(uri), res, rej); } catch (e) { rej(e); } }));
+  return BUF.get(key);
 }
-function browserSpeak(txt) {
+function stopSpeech() {
+  speakId++;
+  try { if (curSrc) { curSrc.onended = null; curSrc.stop(); } } catch (e) {}
+  try { if (curAudio) { curAudio.onended = null; curAudio.pause(); } } catch (e) {}
+  curSrc = curAudio = null;
+  try { if ('speechSynthesis' in window) speechSynthesis.cancel(); } catch (e) {}
+}
+function speak(txt, who = 'L') { speakSeq([[txt, who]]); }
+/* birkaç repliği art arda okur: [[metin, ses], …] */
+function speakSeq(list, gap = 280) {
+  if (!soundOn || !list.length) return;
+  stopSpeech(); const id = speakId;
+  const step = (i) => { if (i < list.length && id === speakId) playOne(list[i][0], list[i][1] || 'L', id, () => setTimeout(() => step(i + 1), gap)); };
+  step(0);
+}
+function playOne(txt, who, id, done) {
+  const uri = clipOf(txt, who); SPOKEN.push({ who, txt, clip: !!uri });
+  if (!uri) return browserSpeak(txt, who === 'S' ? .7 : .9, id, done);
+  const a = ac();
+  if (!a || !a.decodeAudioData) return htmlPlay(uri, txt, id, done);
+  if (a.state === 'suspended') { try { a.resume(); } catch (e) {} }
+  decoded(who + '|' + txt, uri).then((buf) => {
+    if (id !== speakId) return;
+    const s = a.createBufferSource(); s.buffer = buf; s.connect(a.destination);
+    s.onended = () => { if (curSrc === s) curSrc = null; if (id === speakId) done(); };
+    curSrc = s; s.start();
+  }).catch(() => { BUF.delete(who + '|' + txt); if (id === speakId) htmlPlay(uri, txt, id, done); });
+}
+function htmlPlay(uri, txt, id, done) {
+  try {
+    const au = new Audio(uri); curAudio = au; au.onended = () => { if (id === speakId) done(); };
+    const p = au.play(); if (p && p.catch) p.catch(() => { if (id === speakId) browserSpeak(txt, .9, id, done); });
+  } catch (e) { browserSpeak(txt, .9, id, done); }
+}
+function browserSpeak(txt, rate = .9, id = speakId, done = () => {}) {
   if (!('speechSynthesis' in window)) return;
-  try { const u = new SpeechSynthesisUtterance(txt); u.lang = 'de-DE'; if (deVoice) u.voice = deVoice; u.rate = .85; speechSynthesis.speak(u); } catch (e) {}
+  try { const u = new SpeechSynthesisUtterance(txt); u.lang = 'de-DE'; if (deVoice) u.voice = deVoice; u.rate = rate; u.onend = () => { if (id === speakId) done(); }; speechSynthesis.speak(u); } catch (e) {}
 }
 document.addEventListener('visibilitychange', () => { if (document.hidden) stopSpeech(); });
+/* data-say taşıyan her 🔊 düğmesi metnini okur (defter, kelime listesi, örnek cümleler) */
+document.addEventListener('click', (e) => { const b = e.target.closest('[data-say]'); if (b) { e.preventDefault(); speak(b.dataset.say, b.dataset.who || 'L'); } });
+const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
+const spk = (txt, who, small = true, label = 'Dinle') => `<button class="speak${small ? ' sm' : ''}" data-say="${esc(txt)}"${who && who !== 'L' ? ` data-who="${who}"` : ''} aria-label="${esc(label)}">${who === 'S' ? '🐢' : '🔊'}</button>`;
 
 /* ════════════════ SAHNE ════════════════ */
 const W = 1100, H = 640, GROUND = 560;
@@ -585,7 +726,7 @@ const cv = $('#cv'), ctx = cv.getContext('2d');
 let dpr = 1;
 function sizeCanvas() { dpr = Math.min(2, window.devicePixelRatio || 1); cv.width = W * dpr; cv.height = H * dpr; }
 let LK = 1;
-function labelScale() { const w = cv.getBoundingClientRect().width || 1100; LK = Math.max(1, Math.min(1.35, 620 / w)); }
+function labelScale() { const w = cv.getBoundingClientRect().width || 1100; LK = Math.max(1, Math.min(1.6, 620 / w)); }
 sizeCanvas(); labelScale(); addEventListener('resize', () => { sizeCanvas(); labelScale(); });
 const st = { t: 0, hava: 'sabah' };
 const M = N.murekkep(ctx, { GROUND, st }); M.SK = true;
@@ -698,8 +839,9 @@ function kraftBox(x, y, w, h, o = {}) {
 function label(r, strong) {
   ctx.save();
   const fs = Math.round((r.w < 90 ? 15 : 18) * LK); ctx.font = `${fs}px "Caveat Brush", cursive`;
-  const two = r.w < 90, x = r.x + 6, y = r.ly || r.y + 6;
   const wa = ctx.measureText(r.art + ' ').width, wn = ctx.measureText(r.de).width;
+  // dar odada ya da büyütülmüş etikette tek satır sığmazsa artikel üstte, isim altta
+  const two = r.w < 90 || wa + wn + 10 > r.w - 8, x = r.x + 6, y = r.ly || r.y + 6;
   const bw = two ? Math.max(wa, wn) + 10 : wa + wn + 10, bh = two ? fs * 2 + 6 : fs + 8;
   ctx.fillStyle = strong ? 'rgba(246,231,198,.97)' : 'rgba(255,250,240,.86)';
   ctx.beginPath(); ctx.roundRect ? ctx.roundRect(x, y, bw, bh, 5) : ctx.rect(x, y, bw, bh); ctx.fill();
@@ -725,8 +867,9 @@ function roomLayout(r) {
 }
 
 /* kaos kutuları: kalan iş sayısı kadar */
-const CHAOS = [[392, 548, .1], [520, 548, -.12], [700, 548, .05], [820, 548, -.06], [600, 548, .14], [395, 376, -.08], [480, 376, .12],
-  [595, 376, .04], [760, 376, -.1], [840, 376, .08], [455, 548, -.03], [760, 548, .1]];
+/* (kapının, küvetin ve klozetin önüne düşmesinler) */
+const CHAOS = [[372, 548, .1], [520, 548, -.12], [700, 548, .05], [820, 548, -.06], [600, 548, .14], [380, 376, -.08], [480, 376, .12],
+  [628, 376, .04], [760, 376, -.1], [840, 376, .08], [474, 548, -.03], [760, 548, .1]];
 
 function drawHouse() {
   const tt = st.t;
@@ -810,7 +953,8 @@ function drawTruck(ox, remaining, glow) {
   // kasa
   R(92, 392, 154, 140, '#5c4632', 3.2);
   R(92, 392, 154, 18, '#e8a33d', 3);
-  ctx.save(); ctx.font = '19px "Caveat Brush", cursive'; ctx.fillStyle = N.INK; ctx.textBaseline = 'middle'; ctx.fillText('UMZÜGE  NOKTA', 112, 402); ctx.restore();
+  ctx.save(); ctx.font = '19px "Caveat Brush", cursive'; ctx.fillStyle = N.INK; ctx.textBaseline = 'middle'; ctx.textAlign = 'center';
+  ctx.fillText('UMZÜGE  NOKTA', 169, 402, 140); ctx.restore(); // en çok 140 px: yedek yazı tipinde de kasadan taşmaz
   // kutular
   const n = Math.min(9, remaining), bw = 44, bh = 34;
   for (let i = 0; i < n; i++) {
@@ -845,6 +989,14 @@ function zoneAt(x, y) {
   return null;
 }
 
+/* kamyonda ve evde kalan kutu sayısı: açılan / eldeki kutu artık sayılmaz */
+function boxesLeft() {
+  if (!S.mode) return 6;
+  if (S.mode === 'm2') return Math.max(0, S.queue.length - S.idx);
+  const busy = S.mode === 'm1' ? (S.cur && S.phase !== 'open' && S.phase !== 'wait' ? 1 : 0) : (S.hand ? 1 : 0);
+  return Math.max(0, S.queue.length - S.idx - busy);
+}
+
 function draw() {
   const t = st.t;
   ctx.setTransform(dpr, 0, 0, dpr, 0, 0); ctx.clearRect(0, 0, W, H);
@@ -870,7 +1022,7 @@ function draw() {
   drawHouse();
 
   // kaos kutuları
-  const remaining = S.mode === 'm1' ? Math.max(0, S.queue.length - S.idx - (S.cur && S.phase !== 'open' ? 1 : 0)) : S.mode === 'm2' ? Math.max(0, S.queue.length - S.idx) : 6;
+  const remaining = boxesLeft();
   CHAOS.slice(0, Math.min(CHAOS.length, remaining)).forEach(([x, y, rot], i) => kraftBox(x - 15, y - 22, 30, 22, { rot, lw: 1.8 }));
 
   // yerleşmiş eşyalar
@@ -900,8 +1052,7 @@ function draw() {
 
   // kamyon
   const kT = clamp01((t - S.truckT0) / DUR(1.6)), tx = -320 * (1 - ease(kT));
-  const truckRem = S.mode === 'm1' ? Math.max(0, S.queue.length - S.idx - (S.phase === 'open' ? 0 : 1)) + (S.phase === 'open' ? 0 : 0) : S.mode === 'm2' ? Math.max(0, S.queue.length - S.idx) : 6;
-  drawTruck(tx, truckRem, S.phase === 'open' && kT >= 1);
+  drawTruck(tx, boxesLeft(), S.mode === 'm1' && S.phase === 'open' && kT >= 1);
 
   // uçan kutular (Wortkisten)
   S.fly = S.fly.filter((f) => {
@@ -949,7 +1100,8 @@ function draw() {
   // Nokta
   const nk = S.nokta; const dx = nk.tx - nk.x, moving = Math.abs(dx) > 1.5;
   if (moving) nk.x += Math.sign(dx) * Math.min(Math.abs(dx), 3.2 * (RM ? 3 : 1));
-  const happy = t - nk.happyT < 1.6 || (S.finishT0 > 0 && t - S.finishT0 < 6), sad = !happy && t - nk.sadT < 1.4;
+  // son olay kazanır: doğru cevabın hemen ardından gelen bir hata Nokta'yı üzer
+  const sad = t - nk.sadT < 1.4 && nk.sadT > nk.happyT, happy = !sad && (t - nk.happyT < 1.6 || (S.finishT0 > 0 && t - S.finishT0 < 6));
   N.noktaChar(ctx, nk.x, GROUND + 4, { t, moving, dir: dx < 0 ? -1 : 1, happy: happy && !moving, sad });
   if (S.bubble && t - S.bubble.t0 < S.bubble.d) drawBubble(nk.x, GROUND - 92, S.bubble.txt);
 
@@ -966,16 +1118,16 @@ function sparks(x, y, n = 10) { for (let i = 0; i < n; i++) S.parts.push({ kind:
 function puff(x, y) { for (let i = 0; i < 6; i++) S.parts.push({ kind: 'puff', x: x + (i - 3) * 9, y: y - 4, vx: (i - 2.5) * .5, t0: st.t, life: .8 }); }
 function bubble(txt, d = 2.2) { S.bubble = { txt, t0: st.t, d }; }
 
-let last = performance.now();
 function frame(ms) { st.t = ms / 1000; draw(); requestAnimationFrame(frame); }
 
 /* ── işaretçi: sürükle bırak ── */
+const placing = () => (S.mode === 'm1' || S.mode === 'm3') && S.phase === 'room';
 function ptr(e) { const b = cv.getBoundingClientRect(); return { x: (e.clientX - b.left) * W / b.width, y: (e.clientY - b.top) * H / b.height }; }
 let downPt = null;
 cv.addEventListener('pointerdown', (e) => {
   const p = ptr(e); downPt = p;
   if (S.mode === 'm1' && S.phase === 'open' && p.x > 80 && p.x < 260 && p.y > 380 && p.y < 540) { openBox(); return; }
-  if (S.mode === 'm1' && S.phase === 'room' && S.hand) {
+  if (placing() && S.hand) {
     const h = S.hand, dx = p.x - h.x, dy = p.y - h.y;
     if (Math.abs(dx) < 75 && dy > -(SIZE[h.id][1] * 1.15 + 10) && dy < 40) {
       S.drag = { ox: dx, oy: dy, moved: false }; S.howShown = true; h.ret = null; cv.setPointerCapture(e.pointerId); cv.style.cursor = 'grabbing'; sfx.tik(); e.preventDefault();
@@ -987,13 +1139,13 @@ cv.addEventListener('pointermove', (e) => {
   if (S.drag) { const h = S.hand; h.x = p.x - S.drag.ox; h.y = p.y - S.drag.oy; S.drag.moved = true; S.hover = zoneAt(p.x, p.y); return; }
   let c = 'default';
   if (S.mode === 'm1' && S.phase === 'open' && p.x > 80 && p.x < 260 && p.y > 380 && p.y < 540) c = 'pointer';
-  if (S.mode === 'm1' && S.phase === 'room' && S.hand) { const dx = p.x - S.hand.x, dy = p.y - S.hand.y; if (Math.abs(dx) < 75 && dy > -(SIZE[S.hand.id][1] * 1.15 + 10) && dy < 40) c = 'grab'; else if (zoneAt(p.x, p.y)) c = 'pointer'; }
+  if (placing() && S.hand) { const dx = p.x - S.hand.x, dy = p.y - S.hand.y; if (Math.abs(dx) < 75 && dy > -(SIZE[S.hand.id][1] * 1.15 + 10) && dy < 40) c = 'grab'; else if (zoneAt(p.x, p.y)) c = 'pointer'; }
   cv.style.cursor = c;
 });
 function endDrag(e) {
   if (!S.drag) {
     // dokunarak oda seçme (eşya eldeyken)
-    if (e.type === 'pointerup' && S.mode === 'm1' && S.phase === 'room' && downPt) { const p = ptr(e); const z = zoneAt(p.x, p.y); if (z && Math.hypot(p.x - downPt.x, p.y - downPt.y) < 8) dropAt(z); }
+    if (e.type === 'pointerup' && placing() && downPt) { const p = ptr(e); const z = zoneAt(p.x, p.y); if (z && Math.hypot(p.x - downPt.x, p.y - downPt.y) < 8) dropAt(z); }
     return;
   }
   const z = S.hover; S.drag = null; S.hover = null; cv.style.cursor = 'default';
@@ -1012,21 +1164,32 @@ el.hintBtn.addEventListener('click', () => {
   if (S.hintLv >= S.hints.length) el.hintBtn.disabled = true;
 });
 function progress(done, total) { el.fill.style.width = (100 * done / total) + '%'; }
-const STEPS1 = ['Aç', 'Was?', 'Artikel', 'Wohin?', 'Satz'];
+const STEPS = { m1: ['Aç', 'Was?', 'Artikel', 'Wohin?', 'Satz'], m3: ['Hör zu', 'Was?', 'Wohin?', 'Lies'] };
 function steps(i) {
-  if (S.mode !== 'm1') { el.steps.hidden = true; return; }
+  const list = STEPS[S.mode];
+  if (!list) { el.steps.hidden = true; return; }
   el.steps.hidden = false;
-  el.steps.innerHTML = STEPS1.map((s, k) => `<li class="${k < i ? 'done' : k === i ? 'on' : ''}">${s}</li>`).join('');
+  el.steps.innerHTML = list.map((s, k) => `<li class="${k < i ? 'done' : k === i ? 'on' : ''}">${s}</li>`).join('');
 }
 function glowCorrect(sel) { const b = el.body.querySelector(sel); if (b) b.classList.add('glow'); }
+function showNext(label) { el.next.textContent = label; el.next.hidden = false; el.next.focus({ preventScroll: true }); }
+const roomButtons = () => `<div class="choices rooms">${ROOMS.map((r) => `<button class="card small" data-r="${r.id}">${artW(r.art, r.de)}</button>`).join('')}</div>`;
+const bspHTML = (de, tr) => `<div class="bsp">${spk(de, 'L', true, 'Örnek cümleyi dinle')}<div><small>Beispiel</small><div class="de">${de}</div><div class="tr">${tr}</div></div></div>`;
+
+/* ── her oyunun ortak başlangıcı: eski oyunun bekleyen adımlarını ve sesini durdurur ── */
+function begin(mode) {
+  GEN++; stopSpeech(); closeOverlays();
+  Object.assign(S, { mode, idx: 0, log: [], cur: null, miss: 0, finishT0: -9, hand: null, drag: null, hover: null, hl: null, fly: [], truckT0: st.t });
+  S.nokta.tx = 292; el.next.hidden = true; setHints([]); progress(0, 1); steps(0); el.body.innerHTML = '';
+}
 
 /* ── Einrichten ── */
 function startM1() {
-  closeOverlays(); S.mode = 'm1'; S.queue = shuffle(MOEBEL); S.idx = 0; S.placed = []; S.log = []; S.finishT0 = -9; S.hand = null; S.nokta.tx = 292;
-  S.truckT0 = st.t; S.total = S.queue.length; progress(0, 1);
-  setTimeout(nextItem, RM ? 50 : 900);
-  S.phase = 'wait'; el.instr.textContent = 'Kamyon geliyor…'; el.body.innerHTML = ''; setHints([]); el.next.hidden = true; steps(0);
-  say('Hallo! Ben Nokta. Bugün <b>Umzugstag</b>: taşınma günü!');
+  begin('m1'); S.queue = shuffle(MOEBEL); S.placed = []; S.total = S.queue.length; S.phase = 'wait';
+  el.count.textContent = 'Einrichten'; el.instr.textContent = 'Kamyon geliyor…';
+  say('Hallo! Bugün <b>Umzugstag</b>: taşınma günü! Kutuları birlikte açalım.');
+  speak(NOKTA.start1, 'N'); bubble(NOKTA.start1, 2.4);
+  later(nextItem, RM ? 50 : 1100);
 }
 function nextItem() {
   el.next.hidden = true;
@@ -1041,10 +1204,10 @@ function nextItem() {
   if (S.idx > 0) say(pick(['Sıradaki kutu! Bakalım içinden ne çıkacak.', 'Bir kutu daha. Was ist da drin?', 'Weiter! Kutuyu aç.']));
 }
 function openBox() {
-  if (S.phase !== 'open') return;
+  if (S.mode !== 'm1' || S.phase !== 'open') return;
   sfx.box(); S.phase = 'word';
   const hp = handHome(); S.hand = { id: S.cur.id, x: hp.x, y: hp.y, t0: st.t, label: null, art: null };
-  puff(hp.x, 400); bubble('Auspacken!', 1.6);
+  puff(hp.x, 400); bubble(NOKTA.open, 1.6); speak(NOKTA.open, 'N');
   renderWord();
 }
 function renderWord() {
@@ -1057,13 +1220,13 @@ function renderWord() {
     const o = MO[b.dataset.id];
     if (o.id === c.id) {
       b.classList.add('right'); sfx.ok(); S.hand.label = c.de; speak(c.de); S.nokta.happyT = st.t;
-      say(`Ja! <b>${c.de}</b> = ${c.tr}.`, 'good'); S.phase = 'art'; setTimeout(renderArt, DUR(650));
+      say(`Ja! <b>${c.de}</b> = ${c.tr}.`, 'good'); S.phase = 'art'; later(renderArt, DUR(650));
     } else {
       b.classList.add('wrong'); sfx.no(); S.miss++; S.nokta.sadT = st.t;
       say(`<b>${o.de}</b> “${o.tr}” demek. Kutudan çıkan eşyaya bir daha bak.`, 'bad');
     }
   });
-  setHints([`Türkçesi: <b>${c.tr}</b>.`, () => { glowCorrect(`[data-id="${c.id}"]`); return 'Doğru kart şimdi kesik çizgiyle parlıyor.'; }]);
+  setHints([`Türkçesi: <b>${c.tr}</b>.`, () => { glowCorrect(`[data-id="${c.id}"]`); return 'Doğru kart şimdi parlıyor.'; }]);
 }
 function renderArt() {
   steps(2); const c = S.cur;
@@ -1074,7 +1237,7 @@ function renderArt() {
     const a = b.dataset.a;
     if (a === c.art) {
       sfx.ok(); S.hand.art = a; speak(`${a} ${c.de}`); S.nokta.happyT = st.t; sparks(S.hand.x, S.hand.y - 30, 8);
-      say(`Genau! <b>${artW(a, c.de)}</b>`, 'good'); S.phase = 'room'; S.howShown = false; setTimeout(renderRoom, DUR(600));
+      say(`Genau! <b>${artW(a, c.de)}</b>`, 'good'); S.phase = 'room'; S.howShown = false; later(renderRoom, DUR(600));
     } else {
       b.classList.add('wrong'); sfx.no(); S.miss++; S.nokta.sadT = st.t;
       say(`“${a} ${c.de}” olmaz. Çalışma kâğıdında bu kelime hangi renkle yazılıydı?`, 'bad');
@@ -1086,28 +1249,45 @@ function renderArt() {
 function renderRoom() {
   steps(3); const c = S.cur;
   el.instr.innerHTML = `<b>${artW(c.art, c.de)}</b> nereye? Eşyayı altındaki <b>turuncu halkadan</b> tut ve evde uygun odaya sürükle.`;
-  el.body.innerHTML = `<p class="rule">Sürükleyemiyorsan odaya dokun ya da buradan seç:</p><div class="choices rooms">${ROOMS.map((r) => `<button class="card small" data-r="${r.id}">${artW(r.art, r.de)}</button>`).join('')}</div>`;
+  el.body.innerHTML = `<p class="rule">Sürükleyemiyorsan odaya dokun ya da buradan seç:</p>${roomButtons()}`;
   el.body.querySelectorAll('[data-r]').forEach((b) => b.onclick = () => dropAt(b.dataset.r, b));
   setHints([c.why, () => { S.hl = c.rooms[0]; glowCorrect(`[data-r="${c.rooms[0]}"]`); return `Evde <b>${RO[c.rooms[0]].art} ${RO[c.rooms[0]].de}</b> şimdi turuncu parlıyor.`; }]);
 }
+/* eşyayı odaya bırak (Einrichten ve Hör zu! ortak) */
 function dropAt(roomId, btn) {
-  if (S.phase !== 'room' || !S.hand) return;
+  if (!placing() || !S.hand) return;
   const c = S.cur, r = RO[roomId];
-  if (c.rooms.includes(roomId)) {
+  const ok = S.mode === 'm3' ? roomId === S.hearRoom : c.rooms.includes(roomId);
+  if (ok) {
     const h = S.hand;
     S.placed.push({ id: c.id, room: roomId, t0: st.t, from: { x: h.x, y: h.y, s: 1.15 } });
     S.hand = null; S.hl = null; sfx.ok(); S.room = roomId;
     S.nokta.tx = Math.max(300, Math.min(860, r.x + r.w / 2)); S.nokta.happyT = st.t + .6;
-    bubble(pick(['Super!', 'Prima!', 'Toll!', 'Klasse!', 'Sehr gut!']), 1.8);
-    say(`Ja, ${artW(c.art, c.de)} <b>${r.dat}</b>. Şimdi bunu Almanca söyleyelim.`, 'good');
-    S.phase = 'verb'; progress(S.idx + .8, S.queue.length);
-    setTimeout(renderSatz, DUR(500));
+    const lob = pick(NOKTA.lob); bubble(lob, 1.8);
+    progress(S.idx + .8, S.queue.length);
+    if (S.mode === 'm3') {
+      S.phase = 'done'; speakSeq([[lob, 'N'], [S.sentence, 'L']], 350);
+      say(`Ja! ${artW(c.art, c.de)} <b>${r.dat}</b>.`, 'good');
+      later(revealHear, DUR(500));
+    } else {
+      S.phase = 'verb'; speak(lob, 'N');
+      say(`Ja, ${artW(c.art, c.de)} <b>${r.dat}</b>. Şimdi bunu Almanca söyleyelim.`, 'good');
+      later(renderSatz, DUR(500));
+    }
   } else {
-    S.miss++; sfx.no(); S.nokta.sadT = st.t;
-    if (btn) btn.classList.add('wrong');
-    const ein = c.art === 'die' ? 'Eine' : 'Ein';
-    if (!r.inside) { bubble('Komisch…', 2); say(`„${ein} ${c.de} ${r.dat}?“ Komisch! (<b>komisch</b> = tuhaf) Bu eşya evin içinde durmalı.`, 'bad'); }
-    else { bubble('Hmm…', 1.6); say(`„${cap(c.art)} ${c.de} ${r.dat}?“ Pek değil. ${c.why}`, 'bad'); }
+    const b = btn || el.body.querySelector(`[data-r="${roomId}"]`);
+    if (!b || !b.classList.contains('wrong')) S.miss++; // aynı yanlış oda iki kez sayılmasın
+    if (b) b.classList.add('wrong');
+    sfx.no(); S.nokta.sadT = st.t;
+    const line = nope(r); bubble(line, 2.2);
+    if (S.mode === 'm3') {
+      speakSeq([[line, 'N'], [S.sentence, 'S']], 450);
+      say(`Cümlede <b>${r.dat}</b> yok. Yavaş sürümü dinle ve odayı bir daha ara.`, 'bad');
+    } else {
+      speak(line, 'N');
+      if (!r.inside) say(`„${c.art === 'die' ? 'Eine' : 'Ein'} ${c.de} ${r.dat}?“ Komisch! (<b>komisch</b> = tuhaf) Bu eşya evin içine ait.`, 'bad');
+      else say(`„${cap(c.art)} ${c.de} ${r.dat}?“ Pek değil. ${c.why}`, 'bad');
+    }
     if (S.hand) S.hand.ret = { x: S.hand.x, y: S.hand.y, t0: st.t };
   }
 }
@@ -1118,13 +1298,13 @@ function satzHTML(verb, prep) {
   return `<p class="satz"><span class="a-${c.art}">${cap(c.art)}</span> ${c.de} ${g1} ${g2} ${r.de}.</p>`;
 }
 function renderSatz() {
-  steps(4); const c = S.cur, r = RO[S.room];
+  steps(4); const c = S.cur;
   el.instr.innerHTML = 'Cümleyi tamamla. Önce fiil: eşya nasıl duruyor?';
   el.body.innerHTML = satzHTML() + `<div class="choices three">${['steht', 'liegt', 'hängt'].map((v) => `<button class="card" data-v="${v}">${v}</button>`).join('')}</div>`;
   el.body.querySelectorAll('[data-v]').forEach((b) => b.onclick = () => {
     if (b.classList.contains('wrong') || S.phase !== 'verb') return;
     const v = b.dataset.v;
-    if (v === c.verb) { sfx.ok(); speak(v); S.phase = 'prep'; S.verb = v; say(`Richtig: <b>${v}</b>. ${{ steht: 'Dik duruyor.', liegt: 'Yere serili, yatay duruyor.', hängt: 'Duvarda asılı.' }[v]}`, 'good'); setTimeout(renderPrep, DUR(450)); }
+    if (v === c.verb) { sfx.ok(); speak(v); S.phase = 'prep'; S.verb = v; say(`Richtig: <b>${v}</b>. ${{ steht: 'Dik duruyor.', liegt: 'Yere serili, yatay duruyor.', hängt: 'Duvarda asılı.' }[v]}`, 'good'); later(renderPrep, DUR(450)); }
     else {
       b.classList.add('wrong'); sfx.no(); S.miss++; S.nokta.sadT = st.t;
       const m = { steht: '<b>steht</b> = dik durur (der Schrank steht).', liegt: '<b>liegt</b> = yatay, yere serili durur (der Teppich liegt).', hängt: '<b>hängt</b> = duvarda asılı durur (der Spiegel hängt).' }[v];
@@ -1143,15 +1323,15 @@ function renderPrep() {
     const p = b.dataset.p;
     if (p === right) {
       sfx.ok(); S.phase = 'done'; S.nokta.happyT = st.t; sparks(S.nokta.x, GROUND - 60, 10);
-      const sentence = `${cap(c.art)} ${c.de} ${c.verb} ${r.dat}.`;
+      const sentence = satzDe(c, r.id), tr = satzTr(c, r.id);
       el.body.innerHTML = satzHTML(S.verb, right) + `<p class="rule">${r.art === 'die' ? `die ${r.de} → Dativ: <b>der</b> → in der ${r.de}` : `${r.art} ${r.de} → Dativ: <b>dem</b> → in dem = <b>im</b> ${r.de}`}</p>` +
-        `<div class="hintrow" style="margin:0"><button class="speak" id="spk" aria-label="Cümleyi dinle">🔊</button><span class="rule" style="margin:8px 0 0">Dinle</span></div>`;
-      $('#spk').onclick = () => speak(sentence); speak(sentence);
+        `<div class="hintrow" style="margin:0">${spk(sentence, 'L', false, 'Cümleyi dinle')}<span class="rule" style="margin:4px 0 0">Dinle ve tekrar et.<br>${tr}</span></div>`;
+      speak(sentence);
       setHints([]); steps(5); el.instr.innerHTML = 'Cümle tamam! Dinle ve sesli tekrar et.';
       say(`Wunderbar! ${S.miss === 0 ? 'Hiç hata yapmadan!' : 'Bir dahakine ilk denemede!'}`, 'good');
-      S.log.push({ de: artW(c.art, c.de), tr: c.tr, extra: sentence, ok: S.miss === 0 });
+      S.log.push({ de: artW(c.art, c.de), tr: c.tr, extra: sentence, extraTr: tr, say: sentence, ok: S.miss === 0 });
       S.idx++; progress(S.idx, S.queue.length);
-      el.next.textContent = S.idx >= S.queue.length ? 'Evi gör' : 'Sıradaki kutu'; el.next.hidden = false; el.next.focus({ preventScroll: true });
+      showNext(S.idx >= S.queue.length ? 'Evi gör' : 'Sıradaki kutu');
     } else {
       b.classList.add('wrong'); sfx.no(); S.miss++; S.nokta.sadT = st.t;
       say(p === 'im' ? `<b>im</b> = in <b>dem</b>: der ve das odalar için. ${artW(r.art, r.de)} dişil; Dativ'de <b>die → der</b> olur.` : `<b>in der</b> yalnızca die odalar için. ${artW(r.art, r.de)}: Dativ'de ${r.art} → <b>dem</b>, in dem → kısaca?`, 'bad');
@@ -1161,21 +1341,24 @@ function renderPrep() {
 }
 function finishM1() {
   el.next.hidden = true;
-  S.phase = 'end'; S.finishT0 = st.t; S.nokta.tx = 926; sfx.win(); bubble('Fertig! Ordnung!', 4); steps(5);
+  S.phase = 'end'; S.finishT0 = st.t; S.nokta.tx = 926; sfx.win(); bubble(NOKTA.end1, 4); steps(5);
+  later(() => speak(NOKTA.end1, 'N'), 500);
   el.count.textContent = 'Fertig!'; el.instr.innerHTML = 'Ev düzene girdi: <b>die Ordnung</b>!'; el.body.innerHTML = ''; setHints([]);
   say('Danke! Evim artık çok güzel. Defterime bak.', 'good');
-  setTimeout(() => report('Fertig!', 'Ev düzene girdi! Kurduğun cümleler Nokta\'nın defterinde. Kalemle işaretlilere bir daha bak.'), DUR(2400));
+  later(() => report('Fertig!', 'Ev düzene girdi! Kurduğun cümleler Nokta\'nın defterinde. 🔊 ile dinle, kalemle işaretlilere (✎) bir daha bak.'), DUR(2600));
 }
 
 /* ── Wortkisten ── */
 let used2 = [];
 function startM2() {
-  closeOverlays(); S.mode = 'm2'; S.placed = S.placed || []; S.finishT0 = -9; S.hand = null; S.log = []; S.idx = 0; S.nokta.tx = 292; S.truckT0 = st.t;
+  begin('m2'); S.placed = S.placed || []; S.phase = 'wait';
   let pool = WORTE.filter((w) => !used2.includes(w.de)); if (pool.length < ROUND2) { used2 = []; pool = WORTE.slice(); }
   S.queue = shuffle(pool).slice(0, ROUND2).map((w) => ({ w, dir: Math.random() < .55 ? 'tr' : 'de', miss: 0, again: false }));
-  S.queue.forEach((q) => used2.push(q.w.de)); S.total = S.queue.length; progress(0, 1); steps(0); el.next.hidden = true;
-  say('Bu kutularda Lektion 19\'un bütün kelimeleri var. Doğru kutuyu bul, eve taşıyalım!');
-  setTimeout(nextQ, RM ? 50 : 900);
+  S.queue.forEach((q) => used2.push(q.w.de)); S.total = S.queue.length;
+  el.count.textContent = 'Wortkisten'; el.instr.textContent = 'Kutular geliyor…';
+  say('Bu kutularda Lektion 19\'un kelimeleri var. Doğru kutuyu bul, eve taşıyalım!');
+  speak(NOKTA.start2, 'N'); bubble(NOKTA.start2, 1.6);
+  later(nextQ, RM ? 50 : 900);
 }
 function nextQ() {
   el.next.hidden = true;
@@ -1189,61 +1372,160 @@ function nextQ() {
     el.body.innerHTML = `<div class="prompt"><div><span class="w">${w.tr}</span><small>Türkçe</small></div></div><div class="choices">${opts.map((o, i) => `<button class="box" data-i="${i}">${wordHTML(o)}</button>`).join('')}</div>`;
   } else {
     el.instr.innerHTML = 'Bu Almanca kelimenin <b>Türkçe anlamını</b> taşıyan kutuyu seç.';
-    el.body.innerHTML = `<div class="prompt"><div><span class="w">${wordHTML(w)}</span><small>${w.note || 'Almanca'}</small></div><button class="speak" id="spk" aria-label="Kelimeyi dinle">🔊</button></div><div class="choices">${opts.map((o, i) => `<button class="box" data-i="${i}"><span class="tr">${o.tr}</span></button>`).join('')}</div>`;
-    $('#spk').onclick = () => speak(sayText(w)); setTimeout(() => speak(sayText(w)), 300);
+    el.body.innerHTML = `<div class="prompt"><div><span class="w">${wordHTML(w)}</span><small>${w.note || 'Almanca'}</small></div>${spk(sayText(w), 'L', false, 'Kelimeyi dinle')}</div><div class="choices">${opts.map((o, i) => `<button class="box" data-i="${i}"><span class="tr">${o.tr}</span></button>`).join('')}</div>`;
+    later(() => speak(sayText(w)), 300);
   }
   const ci = opts.indexOf(w);
   el.body.querySelectorAll('.box').forEach((b) => b.onclick = () => {
     if (b.classList.contains('wrong') || S.phase !== 'q') return;
     const o = opts[+b.dataset.i];
     if (o === w) {
-      S.phase = 'fly'; b.classList.add('right'); sfx.ok(); speak(sayText(w)); S.nokta.happyT = st.t + .3;
+      S.phase = 'fly'; b.classList.add('right'); sfx.ok(); S.nokta.happyT = st.t + .3;
+      speakSeq(w.bsp ? [[sayText(w)], [w.bsp]] : [[sayText(w)]], 450);
       const dest = pick([[395, 520], [545, 520], [760, 520], [445, 350], [780, 350]]);
       S.fly.push({ a: { x: 170, y: 440 }, b: { x: dest[0], y: dest[1] }, t0: st.t });
-      bubble(w.de.length < 14 ? w.de + '!' : pick(['Super!', 'Prima!']), 1.6);
+      bubble(w.de.length < 14 ? w.de + '!' : pick(NOKTA.lob), 1.6);
       say(`<b>${wordHTML(w)}</b> = ${w.tr}${w.note ? `<br><small>${w.note}</small>` : ''}`, 'good');
-      if (!q.again) S.log.push({ de: wordHTML(w), tr: w.tr, ok: q.miss === 0 });
+      if (w.bsp) el.body.insertAdjacentHTML('beforeend', bspHTML(w.bsp, w.bspTr));
+      setHints([]);
+      if (!q.again) S.log.push({ de: wordHTML(w), tr: w.tr, extra: w.bsp, extraTr: w.bspTr, say: sayText(w), ok: q.miss === 0 });
       S.idx++; progress(S.idx, S.queue.length);
-      setTimeout(nextQ, DUR(q.miss ? 1900 : 1300));
+      showNext(S.idx >= S.queue.length ? 'Bitir' : 'Sıradaki kutu');
     } else {
       b.classList.add('wrong'); sfx.no(); q.miss++; S.nokta.sadT = st.t;
       say(q.dir === 'tr' ? `Bu kutuda <b>${wordHTML(o)}</b> yazıyor, anlamı “${o.tr}”. Bir daha dene.` : `“${o.tr}” başka bir kelimenin anlamı: <b>${wordHTML(o)}</b>. Bir daha dene.`, 'bad');
       if (!q.requeued) { q.requeued = true; S.queue.push({ w, dir: q.dir === 'tr' ? 'de' : 'tr', miss: 0, again: true }); }
     }
   });
-  const first = q.dir === 'tr' ? w.de.replace(/^[^A-Za-zÄÖÜäöü]*/, '')[0] : w.tr[0];
-  setHints([q.dir === 'tr' ? `Almancası <b>${first}</b> harfiyle başlıyor.` : `Türkçesi <b>“${first.toLocaleUpperCase('tr')}”</b> harfiyle başlıyor.`,
+  // ipucu harfi: "(kutudan) çıkarmak" gibi parantezle başlayan anlamlarda parantezi atla
+  const trFirst = w.tr.replace(/^\([^)]*\)\s*/, '')[0];
+  setHints([q.dir === 'tr' ? `Almancası <b>${w.de[0]}</b> harfiyle başlıyor${w.art ? ' (artikelden sonra)' : ''}.` : `Türkçesi <b>“${trFirst.toLocaleUpperCase('tr')}”</b> harfiyle başlıyor.`,
     () => { glowCorrect(`[data-i="${ci}"]`); return 'Doğru kutu şimdi parlıyor.'; }]);
 }
 function finishM2() {
   el.next.hidden = true; S.nokta.tx = 926;
-  S.phase = 'end'; S.finishT0 = st.t; sfx.win(); bubble('Alle Kisten! Fertig!', 3.5); el.count.textContent = 'Fertig!';
+  S.phase = 'end'; S.finishT0 = st.t; sfx.win(); bubble(NOKTA.end2, 3.5); el.count.textContent = 'Fertig!';
+  later(() => speak(NOKTA.end2, 'N'), 500);
   el.instr.innerHTML = 'Bütün kutular eve taşındı!'; el.body.innerHTML = ''; setHints([]);
   say('Danke! Kelimeler defterimde.', 'good');
-  setTimeout(() => report('Alle Kisten!', 'Bütün kutular evde. İlk denemede bildiklerin işaretli; kalemle işaretlilere bir daha bak. Bir daha oynarsan başka kelimeler gelir.'), DUR(2000));
+  later(() => report('Alle Kisten!', 'Bütün kutular evde. İlk denemede bildiklerin işaretli (✓); kalemle işaretlilere (✎) bir daha bak. Bir daha oynarsan başka kelimeler gelir.'), DUR(2200));
 }
 
-/* ── defter, katmanlar ── */
+/* ── Hör zu! (dinle ve yerleştir) ── */
+function startM3() {
+  begin('m3'); S.placed = []; S.phase = 'wait';
+  S.queue = shuffle(MOEBEL).slice(0, HOER).map((m) => ({ m, room: pick(m.rooms) }));
+  S.total = S.queue.length;
+  el.count.textContent = 'Hör zu!'; el.instr.textContent = 'Kulaklar hazır mı?';
+  say('<b>Hör gut zu!</b> Cümleyi dinle: hangi eşya, hangi odaya? Eşyayı duyduğun odaya taşı.');
+  speak(NOKTA.start3, 'N'); bubble(NOKTA.start3, 1.8);
+  later(nextHear, RM ? 400 : 1500);
+}
+const listenBar = () => `<div class="listen"><button class="card" data-say="${esc(S.sentence)}" aria-label="Cümleyi dinle">🔊 Dinle</button><button class="card slow" data-say="${esc(S.sentence)}" data-who="S" aria-label="Cümleyi yavaş dinle">🐢 Yavaş</button></div>`;
+function nextHear() {
+  el.next.hidden = true;
+  if (S.idx >= S.queue.length) return finishM3();
+  const q = S.queue[S.idx]; S.cur = q.m; S.hearRoom = q.room; S.sentence = satzDe(q.m, q.room);
+  S.miss = 0; S.hl = null; S.hand = null; S.nokta.tx = 292;
+  el.count.textContent = `Satz ${S.idx + 1} / ${S.queue.length}`;
+  if (S.idx > 0) say(pick(['Yeni cümle geliyor. Dikkatle dinle!', 'Weiter! Bir cümle daha.', 'Kulak ver: <b>Hör zu!</b>']));
+  renderHearWhat();
+  later(() => speak(S.sentence), 250);
+}
+function renderHearWhat() {
+  S.phase = 'what'; steps(1); const c = S.cur;
+  const opts = shuffle([c, ...shuffle(MOEBEL.filter((m) => m.id !== c.id)).slice(0, 3)]);
+  el.instr.innerHTML = 'Cümleyi dinle. Hangi eşya taşınıyor?';
+  el.body.innerHTML = listenBar() + `<div class="choices">${opts.map((o) => `<button class="card" data-id="${o.id}">${o.de}</button>`).join('')}</div>`;
+  el.body.querySelectorAll('[data-id]').forEach((b) => b.onclick = () => {
+    if (b.classList.contains('wrong') || S.phase !== 'what') return;
+    const o = MO[b.dataset.id];
+    if (o.id === c.id) {
+      b.classList.add('right'); sfx.box(); S.nokta.happyT = st.t; S.phase = 'got';
+      const hp = handHome(); S.hand = { id: c.id, x: hp.x, y: hp.y, t0: st.t, label: c.de, art: c.art }; puff(hp.x, 400);
+      say(`Ja! <b>${artW(c.art, c.de)}</b> = ${c.tr}. Peki nereye?`, 'good'); speak(`${c.art} ${c.de}`);
+      S.howShown = false; later(renderHearWhere, DUR(650));
+    } else {
+      b.classList.add('wrong'); sfx.no(); S.miss++; S.nokta.sadT = st.t;
+      say(`<b>${o.de}</b> (“${o.tr}”) değil. Yavaşça bir daha dinle.`, 'bad');
+      later(() => speak(S.sentence, 'S'), 450);
+    }
+  });
+  setHints(['🐢 ile yavaş dinle. Cümle eşyanın adıyla başlıyor: <i>Der …</i> ya da <i>Das …</i>', () => { glowCorrect(`[data-id="${c.id}"]`); return 'Doğru kart şimdi parlıyor.'; }]);
+}
+function renderHearWhere() {
+  S.phase = 'room'; steps(2); const c = S.cur, r = RO[S.hearRoom];
+  el.instr.innerHTML = `<b>${artW(c.art, c.de)}</b> nereye? Duyduğun odaya taşı: <b>turuncu halkadan</b> tutup sürükle, odaya dokun ya da aşağıdan seç.`;
+  el.body.innerHTML = listenBar() + roomButtons();
+  el.body.querySelectorAll('[data-r]').forEach((b) => b.onclick = () => dropAt(b.dataset.r, b));
+  setHints(['Odanın adından hemen önce <b>im</b> ya da <b>in der</b> duyarsın. 🐢 ile yavaş dinle.', () => { S.hl = r.id; glowCorrect(`[data-r="${r.id}"]`); return `Evde <b>${r.art} ${r.de}</b> şimdi turuncu parlıyor.`; }]);
+}
+function revealHear() {
+  steps(3); const c = S.cur, r = RO[S.hearRoom], ok = S.miss === 0, tr = satzTr(c, r.id);
+  el.instr.innerHTML = 'Doğru! Şimdi cümleyi oku ve sesli tekrar et.';
+  el.body.innerHTML = `<p class="satz read"><span class="a-${c.art}">${cap(c.art)}</span> ${c.de} <b>${c.verb}</b> <b>${r.dat}</b>.</p><p class="rule">${tr}</p>` +
+    `<div class="hintrow" style="margin:0">${spk(S.sentence, 'L', false, 'Cümleyi dinle')}${spk(S.sentence, 'S', false, 'Cümleyi yavaş dinle')}<span class="rule" style="margin:10px 0 0">Dinle ve tekrar et.</span></div>`;
+  setHints([]);
+  say(`Wunderbar! ${ok ? 'İlk dinleyişte buldun!' : 'Kulakların gittikçe alışıyor.'}`, 'good');
+  S.log.push({ de: artW(c.art, c.de), tr: c.tr, extra: S.sentence, extraTr: tr, say: S.sentence, ok });
+  S.idx++; progress(S.idx, S.queue.length);
+  showNext(S.idx >= S.queue.length ? 'Bitir' : 'Sıradaki cümle');
+}
+function finishM3() {
+  el.next.hidden = true; S.phase = 'end'; S.finishT0 = st.t; S.nokta.tx = 926; sfx.win(); steps(4);
+  bubble(NOKTA.end3, 3.5); later(() => speak(NOKTA.end3, 'N'), 500);
+  el.count.textContent = 'Fertig!'; el.instr.innerHTML = 'Bütün cümleleri dinledin, eşyalar yerinde!'; el.body.innerHTML = ''; setHints([]);
+  say('Danke! Çok iyi dinledin. Cümleler defterimde.', 'good');
+  later(() => report('Super zugehört!', 'Duyduğun cümleler Nokta\'nın defterinde. 🔊 ile bir daha dinle; kalemle işaretlilere (✎) dikkat et.'), DUR(2200));
+}
+
+/* ── defter, kelime listesi, katmanlar ── */
 function report(title, lede) {
-  $('#repTitle').textContent = title; $('#repLede').textContent = lede;
-  $('#repTable').innerHTML = S.log.map((r) => `<tr><td class="mk ${r.ok ? 'ok' : 're'}">${r.ok ? '✓' : '✎'}</td><td class="de">${r.de}</td><td>${r.tr}${r.extra ? `<br><i>${r.extra}</i>` : ''}</td></tr>`).join('');
-  $('#otherBtn').textContent = S.mode === 'm1' ? 'Wortkisten oyna' : 'Einrichten oyna';
+  const right = S.log.filter((r) => r.ok).length;
+  $('#repTitle').textContent = title; $('#repLede').textContent = `${lede} İlk denemede: ${right} / ${S.log.length}.`;
+  $('#repTable').innerHTML = S.log.map((r) => `<tr><td class="mk ${r.ok ? 'ok' : 're'}">${r.ok ? '✓' : '✎'}</td><td class="de">${r.de}</td><td class="tr">${r.tr}${r.extra ? `<br><i>${r.extra}</i>` : ''}${r.extraTr ? `<br><small>${r.extraTr}</small>` : ''}</td><td class="sp">${r.say ? spk(r.say) : ''}</td></tr>`).join('');
   $('#report').hidden = false;
 }
-function closeOverlays() { $('#intro').hidden = true; $('#report').hidden = true; }
+function buildWl() {
+  const row = (wHTML, tr, sayTxt, note, bsp, bspTr) => `<div class="wl-row">${spk(sayTxt, 'L', true, 'Kelimeyi dinle')}<div class="wl-w">${wHTML}<small>${tr}</small>${note ? `<em>${note}</em>` : ''}</div><div class="wl-ex">${bsp ? `${spk(bsp, 'L', true, 'Örnek cümleyi dinle')}<span>${bsp}<br><i>${bspTr}</i></span>` : ''}</div></div>`;
+  const sec = (title, sub, rows) => `<h3 class="wl-sec">${title}<small>${sub}</small></h3>${rows.join('')}`;
+  const by = (k) => WORTE.filter((w) => (w.k || 'wort') === k).map((w) => row(wordHTML(w), w.tr, sayText(w), w.note, w.bsp, w.bspTr));
+  $('#wlBody').innerHTML =
+    sec('Möbel', 'eşyalar', MOEBEL.map((m) => row(artW(m.art, m.de), m.tr, `${m.art} ${m.de}`, '', satzDe(m, m.rooms[0]), satzTr(m, m.rooms[0])))) +
+    sec('Räume', 'ev ve odalar', by('raum')) + sec('Nomen', 'diğer isimler', by('nomen')) +
+    sec('Verben', 'fiiller', by('verb')) + sec('Wörter', 'sıfatlar ve diğerleri', by('wort'));
+}
+function openWl() { if (!$('#wlBody').children.length) buildWl(); $('#wl').hidden = false; document.body.classList.add('wl-open'); $('#wlClose').focus({ preventScroll: true }); }
+function closeWl() { $('#wl').hidden = true; document.body.classList.remove('wl-open'); }
+function closeOverlays() { $('#intro').hidden = true; $('#report').hidden = true; closeWl(); }
+function openIntro() { stopSpeech(); $('#report').hidden = true; closeWl(); $('#intro').hidden = false; }
+const START = { m1: startM1, m2: startM2, m3: startM3 };
 $('#m1Btn').onclick = () => { sfx.tik(); startM1(); };
 $('#m2Btn').onclick = () => { sfx.tik(); startM2(); };
-$('#againBtn').onclick = () => (S.mode === 'm1' ? startM1() : startM2());
-$('#otherBtn').onclick = () => (S.mode === 'm1' ? startM2() : startM1());
-$('#modeBtn').onclick = () => { $('#report').hidden = true; $('#intro').hidden = false; };
+$('#m3Btn').onclick = () => { sfx.tik(); startM3(); };
+$('#againBtn').onclick = () => START[S.mode]();
+$('#otherBtn').onclick = openIntro;
+$('#modeBtn').onclick = openIntro;
+$('#wlBtn').onclick = openWl; $('#introWl').onclick = openWl; $('#wlClose').onclick = closeWl;
+$('#wlPrint').onclick = () => window.print();
+$('#wl').addEventListener('click', (e) => { if (e.target === e.currentTarget) closeWl(); });
 $('#soundBtn').onclick = (e) => { soundOn = !soundOn; e.currentTarget.textContent = soundOn ? '🔊 Ses açık' : '🔈 Ses kapalı'; e.currentTarget.setAttribute('aria-pressed', soundOn); if (!soundOn) stopSpeech(); };
-el.next.onclick = () => { sfx.tik(); if (S.mode === 'm1') { if (S.idx >= S.queue.length) finishM1(); else nextItem(); } };
-document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !$('#intro').hidden && S.mode) closeOverlays(); });
+el.next.onclick = () => {
+  sfx.tik();
+  if (S.mode === 'm1') { if (S.idx >= S.queue.length) finishM1(); else nextItem(); }
+  else if (S.mode === 'm2') nextQ();
+  else if (S.mode === 'm3') nextHear();
+};
+document.addEventListener('keydown', (e) => {
+  if (e.key !== 'Escape') return;
+  if (!$('#wl').hidden) closeWl();
+  else if (!$('#intro').hidden && S.mode) closeOverlays();
+});
 
 el.count.textContent = 'Lektion 19'; el.instr.innerHTML = 'Bir oyun seç ve başla.'; setHints([]); steps(0); el.steps.hidden = true;
 S.truckT0 = -9;
 requestAnimationFrame(frame);
-window.__S = S;
+window.__S = S; window.__spoken = SPOKEN;
 </script>
 </body>
 </html>
